@@ -1,0 +1,9 @@
+@import "../../app.wxss";
+
+.main{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 8;
+  /* box-shadow:8rpx 0 16rpx rgba(217, 210, 200, 0.8);  */
+}

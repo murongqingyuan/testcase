@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <button bindtap="clickclick">点我看效果</button>
+     <view class="app_navbar" style="top:158rpx">
+          <block wx:for="{{datas}}" wx:key="index">
+          <view class="colorred {{item === active ? 'colorblue' : ''}}" data-name="{{item}}" bindtap="clickme" >
+          <text>{{item}}</text> </view>
+      </block>
+  </view>
+</view>

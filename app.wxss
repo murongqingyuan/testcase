@@ -1,0 +1,552 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.app_input {
+  background-color: rgb(255, 255, 255);
+  width: 400rpx;
+  height: 60rpx;
+  text-align: end;
+  padding: 0rpx 20rpx;
+  letter-spacing: 2rpx;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 4rpx gainsboro;
+  font-size: 34rpx;
+}
+
+.app_input:hover {
+  background-color: rgb(255, 255, 255);
+  width: 400rpx;
+  height: 60rpx;
+  text-align: end;
+  padding: 0rpx 20rpx;
+  letter-spacing: 2rpx;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 6rpx skyblue;
+  font-size: 34rpx;
+}
+
+.app_boxShow_error {
+  box-shadow: 0 0 8rpx red;
+}
+
+.app_boxShow_success {
+  box-shadow: 0 0 8rpx skyblue;
+}
+
+/* ---------------------------width=750------------------------------------- */
+
+.app_main {
+  height: 100%;
+  width: 100%;
+  background-color: #efeeee;
+  overflow-y: scroll;
+}
+
+.app_label {
+  height: inherit;
+  width: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+  font-weight: 600;
+  /* background-color: saddlebrown; */
+}
+
+.app_text_lv1 {
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.app_text_lv2 {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.app_text_lv3 {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.app_text_lv4 {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.app_text_lv5 {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.app_text_lv6 {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.app_text_money {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: red;
+  letter-spacing: 2rpx;
+  padding: 0 10rpx;
+}
+
+.app_text_category {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.app_item {
+  height: auto;
+  width: auto;
+  padding: 10rpx 20rpx;
+}
+
+.app_flex_center_end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.app_flex_center_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app_flex_center_spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app_flex_start_spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.app_flex_center_start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10rpx;
+}
+
+.app_flex_start_start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.app_card {
+  z-index: 0;
+  height: auto;
+  width: auto;
+  margin: 30rpx 30rpx 30rpx 30rpx;
+  padding: 10rpx 10rpx;
+  border-radius: 20rpx;
+  box-shadow: -12rpx -12rpx 24rpx rgba(255, 255, 255, 1),
+                12rpx 12rpx 24rpx rgba(217, 210, 200, 1);
+}
+
+.app_show {
+  transition: all 0.5s;
+  opacity: 1;
+}
+
+.app_hidden {
+  margin-bottom: 100%;
+  transition: all 0.2s;
+  opacity: 0;
+}
+
+.app_card:hover {
+  box-shadow: inset 12px 12rpx 24rpx rgb(211, 208, 205, 1),
+                inset -12rpx -12rpx 24rpx rgba(255, 255, 255, 1);
+}
+
+.app_avatar {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+}
+
+.app_avatar_big {
+}
+
+.app_avatar_small {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.app_avatar_smaller {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  margin: 0 20rpx;
+}
+
+.app_image_status {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 20rpx;
+  margin-left: 450rpx;
+}
+
+.app_item .app_input {
+  background-color: #efeeee;
+  width: 400rpx;
+  margin: 10rpx 0;
+  line-height: 40rpx;
+  text-align: start;
+  align-items: center;
+  display: flex;
+  padding: 10rpx 20rpx;
+  letter-spacing: 2rpx;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+  overflow: hidden;
+  box-shadow: inset 3px 3rpx 8rpx rgb(211, 208, 205),
+                inset -3rpx -3rpx 4rpx rgba(255, 255, 255, 1);
+}
+
+.app_item .app_input:hover {
+  box-shadow: inset 6px 6rpx 16rpx rgb(211, 208, 205),
+                inset -6rpx -6rpx 8rpx rgba(255, 255, 255, 1);
+}
+
+.app_item .app_input_error {
+  box-shadow: inset 3px 3rpx 8rpx rgb(211, 208, 205),
+                inset -3rpx -3rpx 4rpx rgba(255, 255, 255, 1),
+                0 0 16rpx red;
+}
+
+.app_input_long {
+}
+
+.app_input_short {
+}
+
+.app_item .app_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0rpx;
+  padding: 0rpx;
+  box-shadow: -6rpx -6rpx 12rpx rgba(255, 255, 255, 1), 6rpx 6rpx 6rpx rgba(217, 210, 200, 1);
+  background-color: #efeeee;
+  height: 80rpx;
+}
+
+.app_item .app_button_card {
+  font-size: 24rpx;
+  font-weight: 600;
+  height: 60rpx;
+  width: 120rpx;
+}
+
+.app_item .app_button_save {
+  background-color: #efeeee;
+  color: white;
+}
+
+.app_item .app_button_save_hover {
+  background-color: #efeeee;
+  box-shadow: inset 6px 6rpx 12rpx rgb(211, 208, 205, 1),
+                inset -6rpx -6rpx 12rpx rgba(255, 255, 255, 1);
+}
+
+.app_item .app_button_agree {
+  background-color: skyblue;
+  color: white;
+}
+
+.app_item .app_button_agree_hover {
+  background-color: rgba(135, 207, 235, 1);
+  box-shadow: inset 6px 6rpx 12rpx rgb(211, 208, 205, 1),
+                inset -6rpx -6rpx 12rpx rgba(255, 255, 255, 1);
+}
+
+.app_item .app_button_refuse {
+  background-color: orangered;
+  color: white;
+}
+
+.app_item .app_button_refuse_hover {
+  background-color: rgb(255, 68, 0);
+  box-shadow: inset 6px 6rpx 12rpx rgb(211, 208, 205, 1),
+                inset -6rpx -6rpx 12rpx rgba(255, 255, 255, 1);
+}
+
+.app_item .app_button_error {
+  box-shadow: 0rpx 0rpx 16rpx red;
+}
+
+.app_button_small {
+}
+
+.app_item .app_button_long {
+  width: 440rpx;
+  height: auto;
+  padding: 10rpx 20rpx;
+  line-height: 60rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 10rpx 0;
+}
+
+.app_button_short {
+}
+
+.app_searchBox_input {
+  height: 60rpx;
+  width: 510rpx;
+  padding: 0rpx 20rpx;
+  border-radius: 30rpx;
+  box-shadow: inset 3px 3rpx 8rpx rgb(211, 208, 205),
+                inset -3rpx -3rpx 4rpx rgba(255, 255, 255, 1);
+}
+
+.app_searchBox_input:hover {
+  box-shadow: inset 6px 6rpx 16rpx rgb(211, 208, 205),
+                inset -6rpx -6rpx 8rpx rgba(255, 255, 255, 1);
+}
+
+.app_item .app_searchBox_button {
+  height: 60rpx;
+  width: 60rpx;
+  overflow: hidden;
+  background-color: skyblue;
+}
+
+.app_item .app_searchBox_button_hover {
+  box-shadow: inset 6px 6rpx 12rpx rgb(211, 208, 205, 1),
+                inset -6rpx -6rpx 12rpx rgba(255, 255, 255, 1);
+}
+
+.app_searchBox_dateGroup {
+  width: 550rpx;
+  margin-left: 80rpx;
+  /* background-color: saddlebrown; */
+}
+
+.app_item .app_button_date {
+  width: 250rpx;
+  height: 60rpx;
+}
+
+.app_item .app_button_hover {
+  box-shadow: inset 6px 6rpx 12rpx rgb(211, 208, 205, 1),
+                inset -6rpx -6rpx 12rpx rgba(255, 255, 255, 1);
+}
+
+.app_image_button_small {
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.app_navbar {
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  /* top: 158rpx; */
+  padding: 10rpx 10rpx;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: 15px;
+  box-sizing: border-box;
+  color: #a8a8a8;
+  background-color: #efeeee;
+}
+
+.app_navbar_item {
+  flex: 1;
+  padding: 10rpx 0px;
+  background-color: #efeeee;
+}
+
+.app_navbar_item_active {
+  transition: all 0.3s;
+  color: #494949;
+  border-radius: 10rpx;
+  box-shadow: inset 3px 3rpx 8rpx rgb(211, 208, 205),
+                inset -3rpx -3rpx 4rpx rgba(255, 255, 255, 1);
+}
+
+.app_item_big {
+  height: auto;
+  width: auto;
+  margin: 50rpx 0;
+  display: flex;
+}
+
+.app_step {
+  height: auto;
+  width: 150rpx;
+  flex-shrink: 0;
+}
+
+.app_step_title {
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app_step_line {
+  height: 90%;
+  width: 20rpx;
+  margin-left: 70rpx;
+  border-left: 5rpx gray dashed;
+}
+
+.app_container {
+  padding: 10rpx 20rpx;
+}
+
+.app_container_vertical {
+  display: flex;
+  width: 550rpx;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.app_detail_card {
+  vertical-align: top;
+  display: inline-block;
+  height: auto;
+  width: 450rpx;
+  padding: 10rpx 20rpx;
+  margin: 30rpx 10rpx 10rpx 10rpx;
+  background-color: #efeeee;
+  border-radius: 20rpx;
+  box-shadow: -12rpx -12rpx 22rpx rgba(255, 255, 255, 0.8),
+                12rpx 12rpx 22rpx rgba(217, 210, 200, 0.5);
+}
+
+.app_actionItem {
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  justify-content: center;
+  background-color: #efeeee;
+}
+
+.app_actionItem .app_actionButton {
+  background-color: #efeeee;
+  margin: 0 20rpx;
+  box-shadow: -12rpx -12rpx 22rpx rgba(255, 255, 255, 0.8),
+                12rpx 12rpx 22rpx rgba(217, 210, 200, 0.5);
+}
+
+.app_actionItem .app_button_refuse {
+  background-color: orangered;
+  color: white;
+}
+
+.app_actionItem .app_button_refuse_hover {
+  background-color: rgb(255, 68, 0);
+  box-shadow: inset 6px 6rpx 12rpx rgb(211, 208, 205, 1),
+                inset -6rpx -6rpx 12rpx rgba(255, 255, 255, 1);
+}
+
+.app_actionItem .app_button_agree {
+  background-color: skyblue;
+  color: white;
+}
+
+.app_actionItem .app_button_agree_hover {
+  background-color: skyblue;
+  box-shadow: inset 6px 6rpx 12rpx rgb(211, 208, 205, 1),
+                inset -6rpx -6rpx 12rpx rgba(255, 255, 255, 1);
+}
+
+.app_actionItem .app_actionButton_hover {
+  background-color: #efeeee;
+  box-shadow: inset 12px 12rpx 22rpx rgb(211, 208, 205, 1),
+                inset -12rpx -12rpx 22rpx rgba(255, 255, 255, 1);
+}
+
+.app_actionItem .app_input {
+  background-color: #efeeee;
+  width: 300rpx;
+  margin: 0 20rpx;
+  height: 60rpx;
+  line-height: 40rpx;
+  text-align: start;
+  align-items: center;
+  display: flex;
+  padding: 0rpx 20rpx;
+  letter-spacing: 2rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  box-shadow: inset 3px 3rpx 8rpx rgb(211, 208, 205),
+                inset -3rpx -3rpx 4rpx rgba(255, 255, 255, 1);
+}
+
+.app_actionItem  .app_input_error {
+  box-shadow: inset 3px 3rpx 8rpx rgb(211, 208, 205),
+                inset -3rpx -3rpx 4rpx rgba(255, 255, 255, 1),
+                0 0 16rpx red;
+}
+
+.app_text_money {
+  color: red;
+}
+
+.app_pageItem {
+  height: 50rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #efeeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.app_pageItem .app_text{
+  font-size: 24rpx;
+  font-weight: 700;
+  padding: 0 20rpx;
+
+  height: 50rpx;
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
