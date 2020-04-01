@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "searchDialog": "../../public/searchDialog/searchDialog"
+  },
+"navigationBarBackgroundColor": "#efeeee",
+"navigationBarTextStyle": "black",
+"backgroundTextStyle": "dark",
+  "navigationBarTitleText": "填写日报"
+}

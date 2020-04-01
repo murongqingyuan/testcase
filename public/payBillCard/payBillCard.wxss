@@ -1,0 +1,14 @@
+@import "../../app.wxss";
+
+page {
+  height: 100%;
+  background-color: #efeeee;
+}
+
+.statusImage {
+  position: absolute;
+  right: 100rpx;
+  margin-top: 50rpx;
+  height: 200rpx;
+  width: 200rpx;
+}

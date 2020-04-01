@@ -1,0 +1,32 @@
+<!--pages/overtime/overtimeDetail/overtimeDetail.wxml-->
+<view>
+
+  <memberCard memberId="{{Applyer.ID}}" memberJson="{{Applyer}}"></memberCard>
+
+  <view class="main" wx:if="{{cardFrom =='overTime'}}" style="{{overTimeInfo.PayStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">提交</view>
+        <view class="app_step_line" wx:if="{{overTimeInfo.DptCheckStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{overTimeInfo.SubmitDateTime}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">加班申请</view>
+          <view class="app_item">{{overTimeInfo.Code}}</view>
+          <view class="app_item">{{overTimeInfo.StartDate}} 至 {{overTimeInfo.FinishDate}}</view>
+          <view class="app_item">{{overTimeInfo.Duration}}</view>
+          <view class="app_item">{{overTimeInfo.Description}}</view>
+        </view>
+      </view>
+    </view>
+  
+    <view class="app_actionItem">
+      <button class="app_actionButton app_button_refuse" hover-class="app_button_refuse_hover ">驳回</button>
+      <button class="app_actionButton app_button_agree" hover-class="app_button_agree_hover ">通过</button>
+    </view>
+
+  </view>
+</view>
+

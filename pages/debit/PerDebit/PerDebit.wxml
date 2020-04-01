@@ -1,0 +1,43 @@
+<view>
+  <searchBox bind:search="search" bind:reset="reset" bind:add="addDebit"></searchBox>
+  <!-- 导航栏 -->
+  <view class="app_navbar" style="top:158rpx">
+    <block wx:for="{{navbarTitle}}" wx:key="index">
+      <view class="app_navbar_item {{navbarActiveIndex === index ? 'app_navbar_item_active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+        <text>{{item}}</text> </view>
+    </block>
+  </view>
+  
+  <view style="height:10rpx;">
+    <!-- 防止margin-top 垂直方向塌陷，在第一个元素前增加空元素。 -->
+  </view>
+
+  <view wx:if="{{navbarActiveIndex==0}}" class="app_pageItem">
+    <view class="app_text">已加载 {{outDebitList.length}}/{{totalCount[navbarActiveIndex]}} 条
+    </view>
+    <view class="app_text" bindtap="scrollTop">返回顶部</view>
+  </view>
+  <view wx:if="{{navbarActiveIndex==1}}" class="app_pageItem">
+    <view class="app_text" bindtap="scrollTop">已加载 {{inDebitList.length}}/{{totalCount[navbarActiveIndex]}} 条
+    </view>
+    <view class="app_text" bindtap="scrollTop">返回顶部</view>
+  </view>
+
+  <swiper current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish" style="height:{{windowHeight-290}}rpx;margin-top: 230rpx">
+
+    <swiper-item wx:for="{{navbarTitle}}" wx:key="index">
+       <scroll-view scroll-y="{{true}}" style="height:100%" refresher-enabled="true" bindrefresherrefresh="bindRefresh" refresher-triggered="{{isRefresh}}" bindscrolltolower="bindLoadMore" lower-threshold="50" scroll-top='{{scrollTopNum[navbarActiveIndex]}}'
+        bindscroll="scrolltoupper" scroll-with-animation="false">
+        <loading position="center" wx:if="{{!inited}}"></loading>
+        <loading position="bottom" wx:if="{{loadMore}}"></loading>
+        <block wx:if="{{index==0}}">
+          <debitCard wx:for="{{outDebitList}}" wx:key="index" vIndex="{{index+1}}" cardType="per" debitInfo="{{item}}"></debitCard>
+        </block>
+        <block wx:if="{{index==1}}">
+          <debitCard wx:for="{{inDebitList}}" wx:key="index" vIndex="{{index+1}}" cardType="per" debitInfo="{{item}}"></debitCard>
+        </block>
+       
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

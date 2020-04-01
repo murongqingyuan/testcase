@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "searchBox": "../../public/searchBox/searchBox",
+    "workOrderCard": "../../public/workOrderCard/workOrderCard",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "任务单",
+  "enablePullDownRefresh": true
+}

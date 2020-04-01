@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#fffafa",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#fffafa",
+  "navigationBarTitleText": "员工管理"
+}

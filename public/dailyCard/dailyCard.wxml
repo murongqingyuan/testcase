@@ -1,0 +1,43 @@
+<!--public/dailyCard/dailyCard.wxml-->
+<view>
+  <view class="app_card {{showItem?'app_show':'app_hidden'}}" wx:if="{{dailyData!=''}}">
+    <view class="app_item app_flex_start_spaceBetween">
+
+      <view class="app_item app_label app_flex_center_center" style="flex-direction:column">
+        <image src="../../images/user_me.jpg" mode="aspectFill" class="app_avatar"></image>
+         <view class="app_item">
+         <view class="app_text_lv3">{{writer.Name}}</view>
+        </view>
+         <view class="app_item">
+          <view class="app_text_lv4">{{writer.DepartmentName}}</view>
+        </view>
+      </view>
+
+      <view>
+        <view class="app_item app_flex_center_spaceBetween">
+          <view class="app_text_lv1">{{dailyData.ProjectCode}}</view>
+          <view class="app_text_category ">公司项目</view>
+        </view>
+        <view class="app_item">
+          <view class="app_text_lv2">{{dailyData.ProjectName}}</view>
+        </view>
+        <view class="app_item">
+          <view class="app_text_lv3">{{dailyData.WorkOrderCode}}</view>
+        </view>
+        <view class="app_item">
+          <view class="app_text_lv4">指定日期 {{dailyData.DailyDate}}</view>
+        </view>
+        <view class="app_item">
+          <view class="app_text_lv4">进度 {{dailyData.WBProgress}}</view>
+        </view>
+        <view class="app_item">
+          <view class="app_text_lv5">{{dailyData.Description}}</view>
+        </view>
+        <view class="app_item">
+          <view class="app_text_lv6 app_flex_center_end">{{dailyData.SubmitDateTime}}</view>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</view>

@@ -1,0 +1,80 @@
+<!--pages/detail/detailMember/detailMember.wxml-->
+<searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+<view>
+
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{Code!=''}}">
+    <view class=" app_label">项目编号</view>
+    <view class=" app_label " style="width:440rpx;height:80rpx">{{projectInfo.Code}}</view>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">项目名称</view>
+    <view class=" app_label" style="width:440rpx;">{{projectInfo.Name}}</view>
+  </view>
+
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">签约金额</view>
+    <input class="app_input {{checkOrderMoney?'':'app_input_error'}}" value="{{OrderMoney}}" data-id="OrderMoney" bindinput="inputChange" placeholder="填写签约金额" type="digit" confirm-type="next"></input>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{OrderMoney!=''}}">
+    <view class=" app_label">项目金额</view>
+    <view class=" app_label" style="width:440rpx;height:80rpx">{{ProjectMoney}}</view>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{OrderMoney!=''}}">
+    <view class=" app_label">维修金额</view>
+    <view class=" app_label" style="width:440rpx;height:80rpx">{{RepairMoney}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">商务活动</view>
+    <input class="app_input {{checkBusinessMoneyBudget?'':'app_input_error'}}" value="{{BusinessMoneyBudget}}" data-id="BusinessMoneyBudget" bindinput="inputChange" placeholder="填写商务活动预算" type="digit" confirm-type="next"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">设备成本</view>
+    <input class="app_input {{checkEqpMoneyBudget?'':'app_input_error'}}" value="{{EqpMoneyBudget}}" data-id="EqpMoneyBudget" bindinput="inputChange" placeholder="填写设备成本预算" type="digit" confirm-type="next"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">施工成本</view>
+    <input class="app_input {{checkConstructMoneyBudget?'':'app_input_error'}}" value="{{ConstructMoneyBudget}}" data-id="ConstructMoneyBudget" bindinput="inputChange" placeholder="填写施工成本预算" type="digit" confirm-type="next"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">研发成本</view>
+    <input class="app_input {{checkDevelopMoneyBudget?'':'app_input_error'}}" value="{{DevelopMoneyBudget}}" data-id="DevelopMoneyBudget" bindinput="inputChange" placeholder="填写研发成本预算" type="digit" confirm-type="next"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">保修</view>
+    <switch checked="{{IsWithRepair}}" bindchange="switchChange" data-id="IsWithRepair" />
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{IsWithRepair}}">
+    <view class=" app_label">保修经理</view>
+    <button class="app_button app_button_long {{checkRepairManager?'':'app_button_error'}}" style="width:440rpx" bindtap="showDialog" data-action="RepairManager" hover-class="app_button_hover">{{RepairManagerName==''?'选择保修经理':RepairManagerName}}</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{IsWithRepair}}">
+    <view class=" app_label">保修起日</view>
+    <picker mode="date" value="{{RepairStartDate}}" start="2015-01-01" end="2030-12-31" bindchange="startDateChange">
+      <button class=" app_button app_button_long {{checkStartDate?'':'app_button_error'}}" hover-class="app_button_hover"> {{RepairStartDate==''?'选择开始日期':RepairStartDate}}</button>
+    </picker>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{IsWithRepair}}">
+    <view class=" app_label">保修止日</view>
+    <picker mode="date" value="{{RepairEndDate}}" start="2015-01-01" end="2030-12-31" bindchange="endDateChange">
+      <button class=" app_button app_button_long {{checkEndDate?'':'app_button_error'}}" hover-class="app_button_hover">{{RepairEndDate==''?'选择结束日期':RepairEndDate}}</button>
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class=" app_label">委托实施</view>
+    <switch checked="{{IsEntrust}}" bindchange="switchChange" data-id="IsEntrust" />
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{IsEntrust}}">
+    <view class=" app_label">实施经理</view>
+    <button class="app_button app_button_long {{checkConstructManager?'':'app_button_error'}}" style="width:440rpx" bindtap="showDialog" data-action="ConstructManager" hover-class="app_button_hover">{{ConstructManagerName==''?'选择实施经理':ConstructManagerName}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">签约</button>
+  </view>
+
+</view>

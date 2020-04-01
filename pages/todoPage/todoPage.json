@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bxdCard":"../../public/bxdCard/bxdCard"
+
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "payBillCard": "../../public/payBillCard/payBillCard",
+    "searchBox": "../../public/searchBox/searchBox",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#07c160",
+  "navigationBarTitleText": "部门费用申请记录"
+}

@@ -1,0 +1,29 @@
+<!--public/searchBox/searchBox.wxml-->
+<view class="main" style="background-color:{{bgcolor}}">
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view wx:if="{{!showAdd}}" style="width:60rpx"></view>
+    <button wx:if="{{showAdd}}" class="app_button app_searchBox_button" hover-class="app_searchBox_button_hover" bindtap="add">
+      <image src="../../images/icon_add.png" class="app_image_button_small" mode="aspectFill"></image>
+    </button>
+    <input class="app_searchBox_input" value="{{searchKey}}" bindinput="searchInput"></input>
+    <button class="app_button app_searchBox_button" hover-class="app_searchBox_button_hover" bindtap="search">
+      <image src="../../images/icon_search.png" class="app_image_button_small" mode="aspectFill"></image>
+    </button>
+  </view>
+  <view wx:if="{{showDate}}" class="app_item app_flex_center_spaceBetween">
+    <view class="app_searchBox_dateGroup app_flex_center_spaceBetween">
+      <picker mode="date" value="{{startDate}}" start="2015-01-01" end="2025-12-31" bindchange="startDateChange">
+        <button class="app_button app_button_date app_text_lv5 {{startDateInRange?'':'app_button_error'}}">{{startDate==''?'开始日期':startDate}}</button>
+      </picker>
+      <view style="color:black;">-</view>
+      <picker mode="date" value="{{endDate}}" start="2015-01-01" end="2025-12-31" bindchange="endDateChange">
+        <button class="app_button app_button_date app_text_lv5  {{endDateInRange?'':'app_button_error'}}">{{endDate==''?'结束日期':endDate}}</button>
+      </picker>
+    </view>
+    <button class="app_button app_searchBox_button " hover-class="app_searchBox_button_hover" bindtap="reset">
+      <image src="../../images/icon_reset.png" class="app_image_button_small" mode="aspectFill"></image>
+    </button>
+  </view>
+
+</view>

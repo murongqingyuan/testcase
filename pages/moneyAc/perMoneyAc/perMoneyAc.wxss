@@ -1,0 +1,40 @@
+.item {
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rpx 40rpx;
+}
+
+.item .searchInput {
+  height: 60rpx;
+  width: 100%;
+  background-color: ghostwhite;
+  margin-right: 20rpx;
+  border-radius: 30rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+}
+
+.item .searchButton {
+  height: 60rpx;
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}
+
+.item .resetButton {
+  height: 60rpx;
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx;
+  margin-left: 10rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+}

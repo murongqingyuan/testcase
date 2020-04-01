@@ -1,0 +1,6 @@
+/* public/projectCard/projectCard.wxss */
+@import "../../app.wxss";
+page{
+  height:100%;
+  background-color: #efeeee;
+}

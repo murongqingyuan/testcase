@@ -1,0 +1,45 @@
+<view wx:if="{{BigCard}}">
+  <view class="app_card {{showItem?'app_show':'app_hidden'}} app_flex_center_spaceBetween" bindtap="jumpToEdit">
+    <view class="main">
+      <view class="imageBox">
+        <image src="{{Employee.AvatarUrl ||'../../images/user_unknown.png'}}" mode="aspectFit" class="image" binderror="imageError"></image>
+      </view>
+      <view class="info">
+        <view style=" display: flex;align-items: center;height:80rpx">
+          <view class="name">{{memberJson.Name}}</view>
+          <view class="department">{{memberJson.DepartmentName}}</view>
+        </view>
+       
+        <view class="contact">
+          <view class="item">{{memberJson.Mobile}}</view>
+          <view class="item">{{memberJson.CorpEMail}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class="department {{memberJson.DepartmentName=='研发'?'yf':(memberJson.DepartmentName=='工程'?'gc':(memberJson.DepartmentName=='市场'?'sc':(memberJson.DepartmentName=='售后'?'sh':(memberJson.DepartmentName=='综管'?'zg':''))))}}">
+      {{memberJson.DepartmentName}}
+    </view> -->
+  </view>
+
+
+</view>
+
+
+
+<view class="main" wx:if="{{!BigCard}}">
+  <view class="imageBox_small">
+    <image src="{{Employee.AvatarUrl ||'../../images/user_unknown.png'}}" mode="aspectFit" class="image_small" binderror="imageError"></image>
+  </view>
+  <view class="info_small">
+    <view style=" display: flex;align-items: center;height:40rpx">
+      <view class="name">{{Employee.Name}}</view>
+      <view class="department">{{Employee.DepartmentName}}</view>
+    </view>
+
+    <view class="contact">
+      <view class="item">{{Employee.Mobile}}</view>
+      <view class="item">{{Employee.CorpEMail}}</view>
+    </view>
+  </view>
+</view>

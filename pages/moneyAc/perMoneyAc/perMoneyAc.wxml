@@ -1,0 +1,15 @@
+<!--pages/moneyAc/dptMoneyAc/dptMoneyAc.wxml-->
+<view>
+  <searchBox showAdd="{{false}}" bind:search="search" bind:reset="reset" bind:add="bindShowDialog"></searchBox>
+  <view style="height:10rpx;">
+    <!-- 防止margin-top 垂直方向塌陷，在第一个元素前增加空元素。 -->
+  </view>
+
+  <scroll-view scroll-y="{{true}}" style="height:{{windowHeight-170}}rpx;margin-top: 160rpx;">
+    <loading position="center" wx:if="{{!inited}}"></loading>
+    <loading position="bottom" wx:if="{{loadMore}}"></loading>
+    <moneyAcCard wx:for="{{moneyAcList}}" wx:key="index" vIndex="index" moneyAcInfo="{{item}}" cardFrom="department"></moneyAcCard>
+
+  </scroll-view>
+
+</view>

@@ -1,0 +1,133 @@
+<!--pages/detailBxd/detailBxd.wxml-->
+<view>
+
+  <memberCard memberId="{{Applyer.ID}}" memberJson="{{Applyer}}"></memberCard>
+
+     <!--<view class="steps">
+      <view class="{{payBillInfo.SubmitStatus?'stepR':'step'}}">
+        <view class="stepT">
+          提交
+        </view>
+      </view>
+
+      <view class="{{payBillInfo.DptCheckStatus?'stepR':'step'}}">
+        <view class="stepT">
+          检查
+        </view>
+      </view>
+      <view class="{{payBillInfo.BillCheckStatus?'stepR':'step'}}">
+        <view class="stepT">
+          通过
+        </view>
+      </view>
+      <view class="{{payBillInfo.PayStatus?'stepR':'step'}}">
+        <view class="stepT">
+          付款
+        </view>
+      </view>
+      <view class="lineBg"></view>
+      <view class="{{payBillInfo.PayStatus?'lineShow3':(payBillInfo.BillCheckStatus?'lineShow2':(payBillInfo.DptCheckStatus?'lineShow1':'lineShow0'))}}"></view>
+    </view> -->
+
+  <view class="main" wx:if="{{cardFrom!='outMoneyBill'}}" style="{{payBillInfo.PayStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">提交</view>
+        <view class="app_step_line" wx:if="{{payBillInfo.DptCheckStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{payBillInfo.SubmitDateTime}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">项目报销</view>
+          <view class="app_item">{{payBillInfo.Code}}</view>
+          <view class="app_item">{{payBillInfo.ProjectCode}}</view>
+          <view class="app_item">{{payBillInfo.ProjectName}}</view>
+          <!-- <view class="app_item app_flex_center_start">
+            <image src="{{Applyer.AvatarUrl||'../../images/user_unknown.png'}}" mode="aspectFill" class="app_avatar_smaller"></image>
+            <view>{{Applyer.Name}}</view>
+          </view> -->
+          <view class="app_item">{{payBillInfo.Money}}</view>
+          <view class="app_item">{{payBillInfo.Memo}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{payBillInfo.DptCheckStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">合理确认</view>
+        <view class="app_step_line" wx:if="{{payBillInfo.BillCheckStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{payBillInfo.DptCheckDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{payBillInfo.BillCheckStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">合法确认</view>
+        <view class="app_step_line" wx:if="{{payBillInfo.PayStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{payBillInfo.BillCheckDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{payBillInfo.PayStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">付款</view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{payBillInfo.PayDateTime}}</view>
+      </view>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{payBillInfo.SubmitStatus&&!payBillInfo.DptCheckStatus}}">
+      <button class="app_actionButton app_button_refuse" hover-class="app_button_refuse_hover ">驳回d</button>
+      <button class="app_actionButton app_button_agree" hover-class="app_button_agree_hover ">通过</button>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{payBillInfo.DptCheckStatus&&!payBillInfo.BillCheckStatus}}">
+      <button class="app_actionButton app_button_refuse" hover-class="app_button_refuse_hover ">驳回b</button>
+      <button class="app_actionButton app_button_agree" hover-class="app_button_agree_hover ">通过</button>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{payBillInfo.BillCheckStatus&&!payBillInfo.PayStatus}}">
+      <view></view>
+       <button class="app_actionButton app_button_agree" hover-class="app_button_agree_hover ">支付确认</button>
+    </view>
+  </view>
+
+
+  <view class="main" wx:else="{{cardFrom=='outMoneyBill'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">提交</view>
+        <view class="app_step_line" wx:if="{{payBillInfo.FinishStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{payBillInfo.SubmitDateTime}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">节约奖申请</view>
+          <view class="app_item">{{payBillInfo.Code}}</view>
+          <view class="app_item">{{payBillInfo.Money}}</view>
+          <view class="app_item">{{payBillInfo.Memo}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{payBillInfo.FinishStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">付款</view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{payBillInfo.FinishDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_actionItem" wx:if="{{payBillInfo.SubmitStatus&&!payBillInfo.FinishStatus}}">
+      <view></view>
+       <button class="app_actionButton app_button_agree" hover-class="app_button_agree_hover ">支付确认</button>
+    </view>
+   
+  </view>
+</view>
+

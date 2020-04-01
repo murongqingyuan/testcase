@@ -7,30 +7,12 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    datas:['a','b','c'],
-    active:'b'
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
-    })
-  },
-  clickclick(){
-    wx.requestSubscribeMessage({
-      tmplIds: ['ZhSn2nTHdB5yuwIFdQRNkzv8qHOSiRcnHyD-kK5P0fY'],
-      success(res){
-        console.log(res)
-      }
-    })
-  },
-  clickme(e){
-    let _this = this
-    console.log(e.currentTarget.dataset.name)
-    console.log(this.data.active)
-    this.setData({
-      active:e.currentTarget.dataset.name
     })
   },
   onLoad: function () {
@@ -60,24 +42,6 @@ Page({
         }
       })
     }
-
-    wx.getUserInfo({
-      complete: (res) => {console.log(res)},
-    })
-
-    wx.request({
-      url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx28d00dc194cd3ec0&secret=a77a3d4b0e52fbddb7b8f23b45c13f07',
-      success(res){
-        // wx.request({
-        //   method:'post',
-
-        //   url: 'https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send?access_token='+res.data.access_token,
-        //   success(res1){
-
-        //   }
-        // })
-      }
-    })
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -86,6 +50,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-
+  }
 })

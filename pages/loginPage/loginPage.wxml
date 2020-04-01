@@ -1,0 +1,18 @@
+<!--pages/loginPage/loginPage.wxml-->
+<view class="loginPage">
+  <view class="bigTitle">千帆云OA</view>
+  <view class="loginTitle">login</view>
+  <view class="account">
+    <image class="icon" src="../../images/icon_account.png"></image>
+    <input class="input" placeholder="请输入账号" maxlength="11"></input>
+  </view>
+  <view class="password">
+    <image class="icon" src="../../images/icon_psw.png"></image>
+    <input class="input" placeholder="请输入密码" maxlength="20" password></input>
+  </view>
+
+  <button class="loginButton" type="primary" size="default" bindtap="log_btn">绑定</button>
+
+  <v-toast isShow="{{isShow}}" txt="{{toastContent}}" src="{{toastSrc}}"></v-toast>
+
+</view>

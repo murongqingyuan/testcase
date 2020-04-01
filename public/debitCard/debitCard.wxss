@@ -1,0 +1,117 @@
+/* public/debitCard/debitCard.wxss */
+@import "../../app.wxss";
+page{
+  height:100%;
+  background-color: #efeeee;
+}
+.item {
+  height: 100rpx;
+  width: auto;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  margin:10rpx;
+  box-shadow: 0rpx 0rpx 4rpx gray;
+ 
+}
+.itemShow {
+  transition: all 1s;
+  height: 100rpx;
+  width: auto;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  margin: 10rpx;
+  box-shadow: 0rpx 0rpx 4rpx gray;
+  opacity: 1;
+}
+.itemHidden {
+  height: 100rpx;
+  width: auto;
+  padding: 10rpx;
+  margin: 10rpx;
+  opacity: 0;
+  border-radius: 10rpx;
+  /* margin: 10rpx; */
+  margin-bottom: 100%;
+  box-shadow: 0rpx 0rpx 4rpx gray;
+ 
+}
+
+.main {
+  height: 70rpx;
+  width: inherit;
+  display: flex;
+}
+
+.index {
+  height: 70rpx;
+  width: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  width: 100%;
+  height: 70rpx;
+  padding: 0rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imagebox {
+  height: 70rpx;
+  width: 70rpx;
+  /* background-color: gainsboro; */
+  border-radius: 50%;
+}
+
+.image {
+  height: 70rpx;
+  width: 70rpx;
+}
+
+.foot {
+  height: 30rpx;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badDebit {
+  width: 100rpx;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+}
+
+.dateTime {
+  height: inherit;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  font-size: 24rpx;
+  padding-right: 20rpx;
+}
+
+.add {
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addimage {
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 50%;
+  background-color: gainsboro;
+}
+.red{
+  color: #d81e06;
+}
+.blue{
+  color: #1296db;
+}

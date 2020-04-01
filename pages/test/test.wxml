@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+<view>
+  <view class="main2">1</view>
+
+</view>

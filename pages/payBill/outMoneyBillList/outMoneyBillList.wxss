@@ -1,0 +1,6 @@
+/* pages/payBill/DptPayBillList/DptPayBillList.wxss */
+.searchArea{
+  height: 150rpx;
+  width: 100%;
+  background-color: gainsboro;
+}

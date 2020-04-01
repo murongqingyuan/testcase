@@ -1,15 +1,72 @@
 {
   "pages": [
-    "pages/searchBox/searchBox",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/workPage/workPage",
+    "pages/overtime/overtimeList/overtimeList",
+    "pages/todoPage/todoPage",
+    "pages/debit/PerDebit/PerDebit",
+    "pages/member/listMember/listMember",
+    "pages/payBill/outMoneyBillList/outMoneyBillList",
+    "pages/payBill/TravelPayBillList/TravelPayBillList",
+    "pages/payBill/PrjPayBillList/PrjPayBillList",
+    "pages/workDaily/workDailyList/workDailyList",
+    "pages/workOrder/workOrderList/workOrderList",
+    "pages/project/projectList/projectList",
     
+    "pages/member/addMember/addMember",
+    "pages/debit/addDptDebit/addDptDebit",
+    "pages/debit/addPerDebit/addPerDebit",
+    "pages/debit/DptDebit/DptDebit",
+    "pages/moneyAc/perMoneyAc/perMoneyAc",
+    "pages/moneyAc/dptMoneyAc/dptMoneyAc",
+    "pages/targetAc/dptTargetAc/dptTargetAc",
+    "pages/targetAc/perTargetAc/perTargetAc",
+    "pages/payBill/addBill/addBill",
+    "pages/payBill/payBillDetail/payBillDetail",
+    "pages/workDaily/addworkDaily/addworkDaily",
+    "pages/project/orderProject/orderProject",
+    "pages/project/projectDetail/projectDetail",
+    "pages/project/addProject/addProject",
+    "pages/workOrder/workOrderDetail/workOrderDetail",
+    "pages/workOrder/addWorkOrder/addWorkOrder",
+    "pages/detail/detailMember/detailMember",
+    "pages/index/index",
+    "pages/myPage/myPage",
+    "pages/loginPage/loginPage",
+    
+    "pages/test/test",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTitleText": "千帆云OA",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 200
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/todoPage/todoPage",
+        "text": "待办",
+        "iconPath": "images/icon_todo_dark.png",
+        "selectedIconPath": "images/icon_todo_light.png"
+      },
+      {
+        "pagePath": "pages/workPage/workPage",
+        "text": "办公",
+        "iconPath": "images/icon_work_dark.png",
+        "selectedIconPath": "images/icon_work_light.png"
+      },
+      {
+        "pagePath": "pages/myPage/myPage",
+        "text": "我",
+        "iconPath": "images/icon_my_dark.png",
+        "selectedIconPath": "images/icon_my_light.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

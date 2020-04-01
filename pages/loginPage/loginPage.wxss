@@ -1,0 +1,92 @@
+/* pages/loginPage/loginPage.wxss */
+
+page {
+  height: 100%;
+}
+
+.loginPage {
+  height: inherit;
+  width: 100%;
+  background:-webkit-linear-gradient(top,#fff,gray,#000);
+}
+
+.bigTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+
+  font-size: 60rpx;
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
+  font-weight: 600;
+
+}
+
+.loginTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  font-size: 50rpx;
+  text-transform: uppercase;
+  letter-spacing: 2rpx;
+  font-weight: 600;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  margin: 50rpx 0;
+  width: 70%;
+  margin-left: 15%;
+  height: 90rpx;
+  border: 2rpx solid gray;
+  border-radius: 50rpx;
+  padding: 0rpx 20rpx;
+  box-shadow: 2rpx 2rpx 1rpx gray;
+  background-color: white;
+}
+
+.account .icon {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+}
+
+.account .input {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.password {
+  display: flex;
+  align-items: center;
+  margin: 50rpx 0;
+  width: 70%;
+  margin-left: 15%;
+  height: 90rpx;
+  border: 2rpx solid gray;
+  border-radius: 50rpx;
+  padding: 0rpx 20rpx;
+  box-shadow: 2rpx 2rpx 1rpx gray;
+  background-color: white;
+}
+
+.password .icon {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+}
+
+.password .input {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.loginButton {
+  border-radius: 50rpx;
+  margin: 100rpx 0;
+  letter-spacing: 10rpx;
+}

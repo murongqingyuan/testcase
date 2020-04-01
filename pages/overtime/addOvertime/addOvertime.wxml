@@ -1,0 +1,56 @@
+<!--pages/detail/detailMember/detailMember.wxml-->
+<searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+<view>
+ <!-- wx:if="{{cardFrom=='travel'}}" -->
+
+  <view class="app_item app_flex_center_spaceBetween " wx:if="{{Code!=''}}">
+    <view class="app_label">单号</view>
+    <input class="app_input" value="{{Code}}" data-id="Code" bindinput="inputChange" type="text" confirm-type="next" disabled></input>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">加班申请</view>
+    <radio-group class="radio_group" bindchange="radioChange">
+      <radio class="radio" wx:for-items="{{CategoryList}}" wx:key="index" value="{{item}}" checked="{{item==Category}}">
+        <text>{{item}}</text>
+      </radio>
+    </radio-group>
+
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">开始日期</view>
+    <view>
+     <!-- class="app_searchBox_dateGroup app_flex_center_spaceBetween" -->
+        <picker mode="date" value="{{startDate}}" start="2015-01-01" end="2025-12-31" bindchange="startDateChange">
+          <button class="app_button app_button_date app_text_lv5 overtimeTimeButton {{startDateInRange?'':'app_button_error'}}">{{startDate==''?'开始日期':startDate}}</button>
+        </picker>
+      </view>
+   </view>
+   <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">结束日期</view>
+    <view>
+     <!-- class="app_searchBox_dateGroup app_flex_center_spaceBetween" -->
+        <picker mode="date" value="{{endDate}}" start="2015-01-01" end="2025-12-31" bindchange="endDateChange">
+        <button class="app_button app_button_date app_text_lv5  overtimeTimeButton {{endDateInRange?'':'app_button_error'}}">{{endDate==''?'结束日期':endDate}}</button>
+      </picker>
+      </view>
+   </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">加班时长</view>
+    <input class="app_input {{checkDuration?'':'app_input_error'}}" value="{{Duration}}" data-id="Duration" bindinput="inputChange" placeholder="请填加班工时" type="text" confirm-type="next"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">加班原因</view>
+    <textarea placeholder="请填写加班原因" value="{{Memo}}" class="app_input {{checkMemo?'':'app_input_error'}}" auto-height maxlength="-1" bindblur="bindblur"></textarea>
+
+  </view>
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_save" bindtap="bindCheck" hover-class="app_button_save_hover">保存</button>
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+
+</view>

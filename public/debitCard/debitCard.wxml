@@ -1,0 +1,42 @@
+<!--public/debitCard/debitCard.wxml-->
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" wx:if="{{cardType=='dpt'}}">
+  <view class="main">
+    <view class="index">{{vIndex}}</view>
+    <view class="body">
+      <view class="department">{{debitInfo.Category=='转出'?debitInfo.DepartmentName:debitInfo.RelateDptName}}</view>
+      <view class="money {{debitInfo.Category=='转出'?'red':'blue'}}">{{debitInfo.Money}}</view>
+      <view class="imagebox">
+        <image class="image" mode="aspectFill" src="{{debitInfo.Category=='转出'?'../../images/icon_right_red.png':'../../images/icon_right_blue.png'}}"></image>
+      </view>
+      <view class="department">{{debitInfo.Category=='转出'?debitInfo.RelateDptName:debitInfo.DepartmentName}}</view>
+    </view>
+  </view>
+  <view class="foot">
+    <view class="badDebit"></view>
+    <view class="dateTime">{{debitInfo.DateTime}}</view>
+  </view>
+</view>
+
+
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" wx:if="{{cardType=='per'}}">
+  <view class="main">
+    <view class="index">{{vIndex}}</view>
+    <view class="body">
+      <view class="department">{{debitInfo.Category=='转出'?debitInfo.EmployeeName:debitInfo.RelateName}}</view>
+      <view class="money {{debitInfo.Category=='转出'?'red':'blue'}}">{{debitInfo.Money}}</view>
+      <view class="imagebox">
+        <image class="image" mode="aspectFill" src="{{debitInfo.Category=='转出'?'../../images/icon_right_red.png':'../../images/icon_right_blue.png'}}"></image>
+      </view>
+      <view class="department">{{debitInfo.Category=='转出'?debitInfo.RelateName:debitInfo.EmployeeName}}</view>
+    </view>
+  </view>
+  <view class="foot">
+    <view class="badDebit red ">{{debitInfo.IsBadDebit?'坏账':''}}</view>
+    <view class="dateTime">{{debitInfo.DateTime}}</view>
+  </view>
+</view>
+
+
+<view class="item add" wx:if="{{cardType=='add'}}" bindtap="jump">
+  <image class="addimage" src="../../images/icon_add.png"></image>
+</view>

@@ -1,0 +1,86 @@
+@import "../../app.wxss";
+page{
+  height:100%;
+  background-color: #efeeee;
+}
+
+.card {
+  height: auto;
+  width: auto;
+  margin: 20rpx 10rpx;
+  padding: 10rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 0 6rpx gainsboro;
+}
+
+.card:hover {
+  box-shadow: 0 0 8rpx skyblue;
+}
+
+.main {
+  height: auto;
+  width: auto;
+  display: flex;
+}
+
+.employee {
+  height: auto;
+  width: auto;
+  padding: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.info {
+  padding: 10rpx 20rpx;
+}
+
+.category {
+  height: 60rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.money {
+  color: red;
+  font-size: 40rpx;
+  font-weight: 600;
+  margin-left: 20rpx;
+}
+
+.project {
+  padding: 10rpx 0;
+  height: auto;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.workOrder {
+  padding: 10rpx 0;
+  height: auto;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.foot {
+  height: 30rpx;
+  width: inherit;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 30rpx;
+}

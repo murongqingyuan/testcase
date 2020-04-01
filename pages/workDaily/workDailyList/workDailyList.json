@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "dailyCard": "../../public/dailyCard/dailyCard",
+    "searchBox": "../../public/searchBox/searchBox",
+    "searchDialog": "../../public/searchDialog/searchDialog",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "white",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "日报"
+}

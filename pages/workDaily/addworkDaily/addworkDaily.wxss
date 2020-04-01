@@ -1,0 +1,6 @@
+/* pages/add/addMember/addMember.wxss */
+
+page {
+  height: 100%;
+}
+

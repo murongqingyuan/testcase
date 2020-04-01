@@ -1,0 +1,37 @@
+<!--pages/detail/detailMember/detailMember.wxml-->
+<searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+
+<view class="app_main">
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label ">项目类型</view>
+
+    <picker bindchange="bindPickerChange" value="{{WorkOrderType}}" range="{{WorkOrderTypeList}}">
+
+      <button class=" app_button app_button_long {{checkProjectType?'':'app_button_error'}}" hover-class="app_button_hover"> {{WorkOrderType==''?'选择项目类型':WorkOrderType}}</button>
+    </picker>
+
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{WorkOrderType!='' &&WorkOrderType!='部门项目'}}">
+    <view class="app_label">项目</view>
+    <button class="app_button app_button_long {{checkProjectCode?'':'app_button_error'}}" bindtap="showDialog" data-type="project" hover-class="chooseButton_hover">{{ProjectName==''?'选择项目':ProjectName}}</button>
+
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{(WorkOrderType!=''&&ProjectCode!='')|| WorkOrderType=='部门项目'}}">
+    <view class="app_label">任务</view>
+    <button class="app_button app_button_long {{checkWorkOrderCode?'':'app_button_error'}}" bindtap="showDialog" data-type="workOrder" hover-class="chooseButton_hover">{{WorkOrderCode==''?'选择任务':WorkOrderCode}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">内容</view>
+    <textarea class="app_input {{checkDescription?'':'app_input_error'}}" value="{{Description}}" bindinput="inputChange" data-id="Description" auto-height="true" maxlength="-1" placeholder="填写日报内容"></textarea>
+
+  </view>
+
+   <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>

@@ -1,0 +1,169 @@
+<!--pages/project/addProject/addProject.wxml-->
+<searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+<!-- 工程项目 -->
+<view class="app_main" wx:if="{{projectType=='Projects'}}">
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_text_lv1">工程项目</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">客户</view>
+    <view style="display:flex;align-items:center">
+      <button class="app_button app_searchBox_button" hover-class="app_searchBox_button_hover" style="margin-right: 10rpx;" style="margin-right: 10rpx;" bindtap="add">
+        <image src="../../../images/icon_add.png" class="app_image_button_small" mode="aspectFill"></image>
+      </button>
+      <!-- <image src="../../../images/icon_add.png" class="imageS" mode="aspectFill"></image> -->
+      <button class="app_button app_button_long {{checkCorp?'':'app_button_error'}}" style="width:360rpx" bindtap="showDialog" data-action="customer" hover-class="app_button_hover">{{CorpName==''?'选择客户':CorpName}}</button>
+    </view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目编号</view>
+    <view style="display:flex;align-items:center">
+      <view class="app_text_lv1" style="width:80rpx;">GC</view>
+      <input class="app_input {{checkProjectCode?'':'app_input_error'}}" style="width:320rpx" value="{{ProjectCode}}" bindinput="inputChange" data-id="ProjectCode" placeholder="填写编号"></input>
+    </view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目名称</view>
+
+    <textarea class="app_input {{checkProjectName?'':'app_input_error'}}" value="{{ProjectName}}" bindinput="inputChange" data-id="ProjectName" auto-height="true" maxlength="-1" placeholder="填写名称"></textarea>
+
+    <!-- <input class="app_input {{checkProjectName?'':'app_input_error'}}" value="{{ProjectName}}" bindinput="inputChange" data-id="ProjectName" placeholder="填写名称"></input> -->
+
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目经理</view>
+    <button class="app_button app_button_long {{checkPrjManager?'':'app_button_error'}}" bindtap="showDialog" data-action="prjManager" hover-class="app_button_hover">{{PrjManagerName==''?'选择项目经理':PrjManagerName}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>
+<!-- 销售项目 -->
+<view class="app_main" wx:if="{{projectType=='SaleProjects'}}">
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_text_lv1">销售项目</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">客户</view>
+    <view style="display:flex;align-items:center">
+      <button class="app_button app_searchBox_button" hover-class="app_searchBox_button_hover" style="margin-right: 10rpx;" bindtap="add">
+        <image src="../../../images/icon_add.png" class="app_image_button_small" mode="aspectFill"></image>
+      </button>
+      <button class="app_button app_button_long {{checkCorp?'':'app_button_error'}}" style="width:360rpx" bindtap="showDialog" hover-class="app_button_hover">{{CorpName==''?'选择客户':CorpName}}</button>
+    </view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目编号</view>
+    <view style="display:flex;align-items:center">
+      <view class="app_text_lv1" style="width:80rpx;">XS</view>
+      <input class="app_input {{checkProjectCode?'':'app_input_error'}}" style="width:320rpx" value="{{ProjectCode}}" bindinput="inputChange" data-id="ProjectCode"></input>
+    </view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目名称</view>
+    <input class="app_input {{checkProjectName?'':'app_input_error'}}" value="{{ProjectName}}" bindinput="inputChange" data-id="ProjectName"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">签约金额</view>
+    <input class="app_input {{checkOrderMoney?'':'app_input_error'}}" value="{{OrderMoney}}" bindinput="inputChange" data-id="OrderMoney"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目经理</view>
+    <button class=" app_button app_button_long {{checkPrjManager?'':'app_button_error'}}" style="width:440rpx" bindtap="showDialog" data-action="prjManager" hover-class="app_button_hover">{{PrjManagerName==''?'选择项目经理':PrjManagerName}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>
+<!-- 维修项目 -->
+<view class="app_main" wx:if="{{projectType=='RepairProjects'}}">
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_text_lv1">维修项目</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">客户</view>
+    <view style="display:flex;align-items:center">
+      <button class="app_button app_searchBox_button" hover-class="app_searchBox_button_hover" style="margin-right: 10rpx;" bindtap="add">
+        <image src="../../../images/icon_add.png" class="app_image_button_small" mode="aspectFill"></image>
+      </button>
+      <button class="app_button app_button_long {{checkCorp?'':'app_button_error'}}" style="width:360rpx" bindtap="showDialog" hover-class="app_button_hover">{{CorpName==''?'选择客户':CorpName}}</button>
+    </view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目编号</view>
+    <view style="display:flex;align-items:center">
+      <view class="app_text_lv1" style="width:80rpx;">WX</view>
+      <input class="app_input {{checkProjectCode?'':'app_input_error'}}" style="width:320rpx" value="{{ProjectCode}}" bindinput="inputChange" data-id="ProjectCode"></input>
+    </view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目名称</view>
+    <input class="app_input {{checkProjectName?'':'app_input_error'}}" value="{{ProjectName}}" bindinput="inputChange" data-id="ProjectName"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">签约金额</view>
+    <input class="app_input {{checkOrderMoney?'':'app_input_error'}}" value="{{OrderMoney}}" bindinput="inputChange" data-id="OrderMoney"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">保修起日</view>
+    <picker mode="date" value="{{RepairStartDate}}" start="2015-01-01" end="2025-12-31" bindchange="startDateChange">
+      <view class="app_input {{checkStartDate?'':'app_input_error'}}">
+        {{RepairStartDate}}
+      </view>
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">保修止日</view>
+    <picker mode="date" value="{{RepairEndDate}}" start="2015-01-01" end="2025-12-31" bindchange="endDateChange">
+      <view class="app_input {{checkEndDate?'':'app_input_error'}}">
+        {{RepairEndDate}}
+      </view>
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目经理</view>
+    <button class=" app_button app_button_long {{checkPrjManager?'':'app_button_error'}}" style="width:440rpx" bindtap="showDialog" data-action="prjManager" hover-class="app_button_hover">{{PrjManagerName==''?'选择项目经理':PrjManagerName}}</button>
+  </view>
+
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+</view>
+
+<!-- 公司项目 -->
+<view class="app_main" wx:if="{{projectType=='CorpProjects'}}">
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_text_lv1">公司项目</view>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目编号</view>
+    <view style="display:flex;align-items:center">
+      <view class="app_text_lv1" style="width:80rpx;">NB</view>
+      <input class="app_input {{checkProjectCode?'':'app_input_error'}}" style="width:320rpx" value="{{ProjectCode}}" bindinput="inputChange" data-id="ProjectCode"></input>
+    </view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目名称</view>
+    <input class="app_input {{checkProjectName?'':'app_input_error'}}" value="{{ProjectName}}" bindinput="inputChange" data-id="ProjectName"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">成本预算</view>
+    <input class="app_input {{checkOrderMoney?'':'app_input_error'}}" value="{{OrderMoney}}" bindinput="inputChange" data-id="OrderMoney"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目经理</view>
+    <button class=" app_button app_button_long {{checkPrjManager?'':'app_button_error'}}" style="width:440rpx" bindtap="showDialog" data-action="prjManager" hover-class="app_button_hover">{{PrjManagerName==''?'选择项目经理':PrjManagerName}}</button>
+  </view>
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>

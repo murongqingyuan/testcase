@@ -1,0 +1,5 @@
+/* pages/debit/addPerDebit/addPerDebit.wxss */
+page{
+  height: 100%;
+  background-color: #efeeee;
+}

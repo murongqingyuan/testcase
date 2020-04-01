@@ -1,0 +1,27 @@
+<!--pages/workDaily/workDaily.wxml-->
+<view>
+  <searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+  <searchBox bind:search="search" bind:reset="reset" bind:add="bindShowDialog"></searchBox>
+  <view class="choose" bindtap="showDialog">
+    <image src="../../../images/user_me.jpg" mode="aspectFill" class="image"></image>
+    <view class="name">{{selectEmployee.Name}}</view>
+
+  </view>
+  <view style="height:10rpx;">
+    <!-- 防止margin-top 垂直方向塌陷，在第一个元素前增加空元素。 -->
+  </view>
+  <!-- 页脚 -->
+  <view class="app_pageItem">
+    <view class="app_text">已加载 {{dailyList.length}}/{{totalCount}} 条
+    </view>
+    <view class="app_text" bindtap="scrollTop">返回顶部</view>
+  </view>
+  <scroll-view scroll-y="{{true}}" style="height:{{windowHeight-220}}rpx;margin-top: 160rpx;" refresher-enabled="true" bindrefresherrefresh="bindRefresh" refresher-triggered="{{isRefresh}}" bindscrolltolower="bindLoadMore" lower-threshold="50" scroll-top='{{scrollTopNum}}'
+    scroll-with-animation="false">
+    <loading position="center" wx:if="{{!inited}}"></loading>
+
+    <dailyCard wx:for="{{dailyList}}" wx:key="index" dailyData="{{item}}" vIndex="{{index}}"></dailyCard>
+    <loading position="bottom" wx:if="{{loadMore}}"></loading>
+  </scroll-view>
+
+</view>

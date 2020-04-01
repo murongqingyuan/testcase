@@ -1,0 +1,113 @@
+<!--pages/detail/detailMember/detailMember.wxml-->
+<view>
+
+
+  <view class="item imageItem">
+    <view class="label">
+      上传照片
+    </view>
+    <image class="image" src="{{tempAvatar.length==0?(AvatarUrl.length==0?'../../../images/icon_add.png':AvatarUrl):tempAvatar}}" mode="aspectFill" bindtap="bindSelectImage"></image>
+  </view>
+  <view class="item inputItem">
+    <view class="label">姓名</view>
+    <input class="input {{checkName?'':'input_wrong'}}" value="{{Name}}" data-id="Name" bindinput="inputChange" placeholder="请填写员工姓名" type="text" confirm-type="next"></input>
+  </view>
+  <view class="item inputItem">
+    <view class="label">部门</view>
+    <picker bindchange="bindPickerChange" value="{{DepartmentID}}" range="{{DepartmentArray}}" range-key="Name"  >
+      <view class="picker {{checkDepartmentID?'':'input_wrong'}}" >
+      {{DepartmentName}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="item inputItem">
+    <view class="label">编号</view>
+    <input class="input {{checkCode?'':'input_wrong'}}" value="{{Code}}" data-id="Code" bindinput="inputChange" placeholder="请填写员工编号" type="text" confirm-type="next"></input>
+  </view>
+
+  <view class="item inputItem">
+    <view class="label">登录密码</view>
+    <input class="input {{checkLoginPSW?'':'input_wrong'}}" value="{{LoginPSW}}" data-id="LoginPSW" bindinput="inputChange" placeholder="请填写员工登录密码" type="text" confirm-type="next"></input>
+  </view>
+
+  <view class="item inputItem">
+    <view class="label">电话</view>
+    <input class="input {{checkMobile?'':'input_wrong'}}" value="{{Mobile}}" data-id="Mobile" bindinput="inputChange" placeholder="请填写员工电话号码" type="number" confirm-type="next"></input>
+  </view>
+
+  <view class="item inputItem">
+    <view class="label">邮箱</view>
+    <input class="input {{checkCorpEMail?'':'input_wrong'}}" value="{{CorpEMail}}" data-id="CorpEMail" bindinput="inputChange" placeholder="请填写员工邮箱" type="text" confirm-type="next"></input>
+  </view>
+
+  <view class="item inputItem">
+    <view class="label">可调休天数</view>
+    <input class="input {{checkHoliday?'':'input_wrong'}}" value="{{Holiday}}" data-id="Holiday" bindinput="inputChange" placeholder="请填写员工可调休天数" type="number" confirm-type="next"></input>
+  </view>
+
+  <view class="item inputItem">
+    <view class="label">生日</view>
+    <input class="input {{checkBirthday?'':'input_wrong'}}" value="{{Birthday}}" data-id="Birthday" bindinput="inputChange" placeholder="请填写员工生日" type="text" confirm-type="done"></input>
+  </view>
+
+
+  <view class="item switchItem">
+    <view class="label">总经理</view>
+    <switch checked="{{IsBoss}}" bindchange="switchChange" data-id="IsBoss" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">管理层</view>
+    <switch checked="{{IsManageAssistant}}" bindchange="switchChange" data-id="IsManageAssistant" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">项目经理</view>
+    <switch checked="{{IsProjectManager}}" bindchange="switchChange" data-id="IsProjectManager" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">部门经理</view>
+    <switch checked="{{IsDptManager}}" bindchange="switchChange" data-id="IsDptManager" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">人事</view>
+    <switch checked="{{IsHR}}" bindchange="switchChange" data-id="IsHR" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">财务</view>
+    <switch checked="{{IsFinance}}" bindchange="switchChange" data-id="IsFinance" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">出纳</view>
+    <switch checked="{{IsCashier}}" bindchange="switchChange" data-id="IsCashier" />
+  </view>
+  
+  <view class="item switchItem">
+    <view class="label">仓管</view>
+    <switch checked="{{IsStorageManager}}" bindchange="switchChange" data-id="IsStorageManager" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">采购</view>
+    <switch checked="{{IsPurchasing}}" bindchange="switchChange" data-id="IsPurchasing" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">文档管理员</view>
+    <switch checked="{{IsDocumentManager}}" bindchange="switchChange" data-id="IsDocumentManager" />
+  </view>
+
+  <view class="item switchItem">
+    <view class="label">信息管理员</view>
+    <switch checked="{{IsInfoManager}}" bindchange="switchChange" data-id="IsInfoManager" />
+  </view>
+
+  <view class="item saveItem">
+    <button class="app_button_save" hover-class="app_button_save_hover" bindtap="bindCheck">保存</button>
+  </view>
+</view>

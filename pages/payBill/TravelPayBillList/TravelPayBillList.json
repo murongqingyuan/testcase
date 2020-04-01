@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "payBillCard": "../../public/payBillCard/payBillCard",
+    "v-toast": "../../public/toast/toast",
+    "searchBox": "../../public/searchBox/searchBox",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#b3d4db",
+  "navigationBarTitleText": "报销单",
+  "enablePullDownRefresh": false
+}

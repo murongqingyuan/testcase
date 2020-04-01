@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "memberCard": "../../public/memberCard/memberCard"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "费用详情"
+}

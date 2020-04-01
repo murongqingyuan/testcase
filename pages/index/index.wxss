@@ -4,12 +4,7 @@
   flex-direction: column;
   align-items: center;
 }
-.colorred{
-  color:red
-}
-.colorblue{
-  color:blue
-}
+
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;

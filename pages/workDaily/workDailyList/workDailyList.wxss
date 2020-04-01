@@ -1,0 +1,36 @@
+/* pages/workDaily/workDaily.wxss */
+page{
+  height: 100%;
+}
+.choose {
+  z-index: 8;
+  position: fixed;
+  right: 0rpx;
+  top: 180rpx;
+  height: 60rpx;
+  width:max-content;
+  background-color: whitesmoke;
+  border-top-left-radius: 40rpx;
+  border-bottom-left-radius: 40rpx;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10rpx;
+  align-items: center;
+  box-shadow: -2rpx -2rpx 4rpx rgba(255, 255, 255, 1),
+                12rpx 12rpx 24rpx rgba(217, 210, 200, 1);
+}
+
+.choose .image {
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
+}
+
+.choose .name {
+  height: 50rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 20rpx;
+}

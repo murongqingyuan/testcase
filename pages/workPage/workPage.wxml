@@ -1,0 +1,90 @@
+<!--pages/workPage/workPage.wxml-->
+<view class="main">
+
+  <!-- <view class="item">
+    <image class="image" src="../../images/image_company.png" mode="aspectFit"></image>
+    <text class="text">公司信息</text>
+    <button class="button" bindtap="jump" data-page="companyPage"></button>
+  </view> -->
+
+  <view class="item">
+    <image class="image" src="../../images/image_member.png" mode="aspectFit"></image>
+    <text class="text">公司成员</text>
+    <button class="button" bindtap="jump" data-page="memberPage"></button>
+  </view>
+  <view class="item">
+
+    <image class="image" src="../../images/image_bxd.png" mode="aspectFit"></image>
+    <text class="text">报销单</text>
+    <button class="button" bindtap="jump" data-page="travelPayBill"></button>
+  </view>
+
+  <view class="item">
+    <image class="image" src="../../images/image_jyj.png" mode="aspectFit"></image>
+    <text class="text">节约奖</text>
+    <button class="button" bindtap="jump" data-page="outMoneyBillList"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_jyj.png" mode="aspectFit"></image>
+    <text class="text">部门指标明细</text>
+    <button class="button" bindtap="jump" data-page="dptTargetAc"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_jyj.png" mode="aspectFit"></image>
+    <text class="text">个人指标明细</text>
+    <button class="button" bindtap="jump" data-page="perTargetAc"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_costApply.png" mode="aspectFit"></image>
+    <text class="text">部门费用申请</text>
+    <button class="button" bindtap="jump" data-page="dptPayBill"></button>
+  </view>
+ <view class="item">
+    <image class="image" src="../../images/image_costApply.png" mode="aspectFit"></image>
+    <text class="text">项目费用申请</text>
+    <button class="button" bindtap="jump" data-page="prjPayBill"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_costApply.png" mode="aspectFit"></image>
+    <text class="text">部门费用明细</text>
+    <button class="button" bindtap="jump" data-page="dptMoneyAc"></button>
+  </view>
+
+  <view class="item">
+    <image class="image" src="../../images/image_costApply.png" mode="aspectFit"></image>
+    <text class="text">个人费用明细</text>
+    <button class="button" bindtap="jump" data-page="perMoneyAc"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_costTransfer.png" mode="aspectFit"></image>
+    <text class="text">部门转账</text>
+    <button class="button" bindtap="jump" data-page="DptDebit"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_costTransfer.png" mode="aspectFit"></image>
+    <text class="text">个人转账</text>
+    <button class="button" bindtap="jump" data-page="PerDebit"></button>
+  </view>
+
+  <view class="item">
+    <image class="image" src="../../images/image_costTransfer.png" mode="aspectFit"></image>
+    <text class="text">日报</text>
+    <button class="button" bindtap="jump" data-page="workDailyList"></button>
+  </view>
+
+   <view class="item">
+    <image class="image" src="../../images/image_member.png" mode="aspectFit"></image>
+    <text class="text">项目</text>
+    <button class="button" bindtap="jump" data-page="projectList"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_member.png" mode="aspectFit"></image>
+    <text class="text">加班</text>
+    <button class="button" bindtap="jump" data-page="overtime"></button>
+  </view>
+  <view class="item">
+    <image class="image" src="../../images/image_member.png" mode="aspectFit"></image>
+    <text class="text">调休</text>
+    <button class="button" bindtap="jump" data-page="projectList"></button>
+  </view>
+</view>

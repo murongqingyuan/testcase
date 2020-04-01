@@ -1,0 +1,286 @@
+<image src="{{payBillInfo.FinishStatus?'../../images/status_yzf.png':(payBillInfo.SubmitStatus?'../../images/status_wzf.png':'')}}" mode="aspectFill" class="statusImage"></image>
+
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='department'}}">
+
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end">部门费用申请</view>
+
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.Code}}</view>
+  </view>
+  <view class="app_item">
+    <view class="category">{{payBillInfo.Category}}</view>
+  </view>
+
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">￥{{payBillInfo.Money}}</view>
+  </view>
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0;">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}" ></memberCard>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv5">{{payBillInfo.Memo}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{payBillInfo.SubmitStatus}}">{{payBillInfo.SubmitDateTime}}</view>
+  </view>
+
+</view>
+
+<!-- 项目报销 -->
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='travel'}}">
+
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end" wx:if="{{cardFrom=='travel' && payBillInfo.Category=='项目报销'}}"> 项目报销</view>
+    <view class="app_text_category app_flex_center_end" wx:if="{{cardFrom=='travel' && payBillInfo.Category=='任务报销'}}"> 任务报销</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.Code}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.ProjectCode}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv2">{{payBillInfo.ProjectName}}</view>
+  </view>
+  <view class="app_item" wx:if="{{payBillInfo.Category=='任务报销'}}">
+    <view class="app_text_lv1">{{payBillInfo.WorkOrderCode}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">￥{{payBillInfo.Money}}</view>
+  </view>
+  
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0;">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}" ></memberCard>
+    <!-- <image src="../../images/user_me.jpg" mode="aspectFill" class="app_avatar_small"></image>
+    <view class="app_text_lv3">{{payBillInfo.ApplyerName}}</view>
+    <view class="app_item app_text_lv4">{{payBillInfo.DepartmentName}}</view> -->
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv5">{{payBillInfo.Memo}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{payBillInfo.SubmitStatus}}">{{payBillInfo.SubmitDateTime}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.BillCheckStatus&&!payBillInfo.PayStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">支付确认</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.DptCheckStatus&&!payBillInfo.BillCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.SubmitStatus&&!payBillInfo.DptCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{!payBillInfo.SubmitStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">提交</button>
+  </view>
+
+</view>
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='outMoneyBill'}}">
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end">节约奖申请</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.Code}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">￥{{payBillInfo.ApplyMoney}}</view>
+  </view>
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}"></memberCard>
+    <!-- <image src="../../images/user_me.jpg" mode="aspectFill" class="app_avatar_small"></image>
+    <view class="app_text_lv3">{{payBillInfo.ApplyerName}}</view> -->
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv5">{{payBillInfo.Memo}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{payBillInfo.SubmitStatus}}">{{payBillInfo.SubmitDateTime}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{payBillInfo.SubmitStatus&&editable&&!payBillInfo.FinishStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">支付确认</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{!payBillInfo.SubmitStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">提交</button>
+  </view>
+
+</view>
+<!-- 项目费用申请 -->
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='project'}}">
+
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end">项目费用申请</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv3">{{payBillInfo.Code}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.ProjectCode}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv2">{{payBillInfo.ProjectName}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">￥{{payBillInfo.Money}}</view>
+  </view>
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0;">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}" ></memberCard>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv5">{{payBillInfo.Memo}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{payBillInfo.SubmitStatus}}">{{payBillInfo.SubmitDateTime}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.BillCheckStatus&&!payBillInfo.PayStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">支付确认</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.DptCheckStatus&&!payBillInfo.BillCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.SubmitStatus&&!payBillInfo.DptCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{!payBillInfo.SubmitStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">提交</button>
+  </view>
+</view>
+
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='travel'}}">
+
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end" wx:if="{{cardFrom=='travel' && payBillInfo.Category=='项目报销'}}"> 项目报销</view>
+    <view class="app_text_category app_flex_center_end" wx:if="{{cardFrom=='travel' && payBillInfo.Category=='任务报销'}}"> 任务报销</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.Code}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.ProjectCode}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv2">{{payBillInfo.ProjectName}}</view>
+  </view>
+  <view class="app_item" wx:if="{{payBillInfo.Category=='任务报销'}}">
+    <view class="app_text_lv1">{{payBillInfo.WorkOrderCode}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">￥{{payBillInfo.Money}}</view>
+  </view>
+  
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0;">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}" ></memberCard>
+    <!-- <image src="../../images/user_me.jpg" mode="aspectFill" class="app_avatar_small"></image>
+    <view class="app_text_lv3">{{payBillInfo.ApplyerName}}</view>
+    <view class="app_item app_text_lv4">{{payBillInfo.DepartmentName}}</view> -->
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv5">{{payBillInfo.Memo}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{payBillInfo.SubmitStatus}}">{{payBillInfo.SubmitDateTime}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.BillCheckStatus&&!payBillInfo.PayStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">支付确认</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.DptCheckStatus&&!payBillInfo.BillCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.SubmitStatus&&!payBillInfo.DptCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{!payBillInfo.SubmitStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">提交</button>
+  </view>
+
+</view>
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='outMoneyBill'}}">
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end">节约奖申请</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.Code}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">￥{{payBillInfo.ApplyMoney}}</view>
+  </view>
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}"></memberCard>
+    <!-- <image src="../../images/user_me.jpg" mode="aspectFill" class="app_avatar_small"></image>
+    <view class="app_text_lv3">{{payBillInfo.ApplyerName}}</view> -->
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv5">{{payBillInfo.Memo}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{payBillInfo.SubmitStatus}}">{{payBillInfo.SubmitDateTime}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{payBillInfo.SubmitStatus&&editable&&!payBillInfo.FinishStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">支付确认</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{!payBillInfo.SubmitStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">提交</button>
+  </view>
+
+</view>
+<!-- 加班申请 -->
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='overTime'}}">
+
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end">加班申请</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv3">{{payBillInfo.StartDate}} - {{payBillInfo.FinishDate}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv2">{{payBillInfo.ProjectName}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">{{payBillInfo.Duration}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{payBillInfo.Description}}</view>
+  </view>
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0;">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}" ></memberCard>
+  </view>
+  <!-- <view class="app_item">
+    <view class="app_text_lv5">{{payBillInfo.Memo}}</view>
+  </view> -->
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{payBillInfo.SubmitStatus}}">{{payBillInfo.SubmitDateTime}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.BillCheckStatus&&!payBillInfo.PayStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">支付确认</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.DptCheckStatus&&!payBillInfo.BillCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&payBillInfo.SubmitStatus&&!payBillInfo.DptCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{!payBillInfo.SubmitStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">提交</button>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "searchDialog": "../../public/searchDialog/searchDialog",
+    "memberCard": "../../public/memberCard/memberCard"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "项目详情"
+}

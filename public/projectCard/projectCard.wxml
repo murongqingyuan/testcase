@@ -1,0 +1,36 @@
+<!--public/projectCard/projectCard.wxml-->
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail">
+
+  <view class="app_item app_flex_center_spaceBetween">
+
+    <view class="app_text_lv1">{{projectInfo.Code}}</view>
+    <view wx:if="{{cardType=='Projects'}}" class="app_text_category">工程项目</view>
+    <view wx:if="{{cardType=='SaleProjects'}}" class="app_text_category">销售项目</view>
+    <view wx:if="{{cardType=='RepairProjects'}}" class="app_text_category">维修项目</view>
+    <view wx:if="{{cardType=='CorpProjects'}}" class="app_text_category">公司项目</view>
+
+  </view>
+
+  <view class="app_item">
+    <view class="app_text_lv2">{{projectInfo.Name}}</view>
+  </view>
+
+  <view class="app_item">
+    <view class="app_text_lv4">{{projectInfo.CustomerName}}</view>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+
+    <view class="app_flex_center_start">
+     <memberCard memberJson="{{Publisher}}" BigCard="{{false}}"></memberCard>
+      <!-- <image src="../../images/user_me.jpg" mode="aspectFill" class="app_avatar_small"></image>
+      <view class="app_text_lv4">{{Publish.PrjManagerName}}</view> -->
+    </view>
+
+    <view class="app_text_lv6">
+      {{projectInfo.BuildDate}}
+    </view>
+
+  </view>
+
+</view>

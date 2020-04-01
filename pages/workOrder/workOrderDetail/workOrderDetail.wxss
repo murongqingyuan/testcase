@@ -1,0 +1,6 @@
+/* pages/workOrder/workOrderDetail/workOrderDetail.wxss */
+
+page {
+  height: 100%;
+  background-color: #efeeee;
+}

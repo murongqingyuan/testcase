@@ -1,0 +1,21 @@
+<!--public/loading/loading.wxml-->
+<view class="center" wx:if="{{position=='center' && show=='text'}}">
+  LOADING
+</view>
+<view class="bottom" wx:if="{{position=='bottom' && show=='text'}}">
+  LOADING
+</view>
+
+<view class="imageBox" wx:if="{{position=='center' && show=='image'}}">
+  <view class='base'>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+  </view>
+</view>

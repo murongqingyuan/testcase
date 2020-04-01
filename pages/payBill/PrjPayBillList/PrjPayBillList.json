@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "payBillCard": "../../public/payBillCard/payBillCard",
+    "v-toast": "../../public/toast/toast",
+    "searchBox": "../../public/searchBox/searchBox",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#efeeee",
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "项目费用申请记录"
+}

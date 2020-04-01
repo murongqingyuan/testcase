@@ -1,0 +1,44 @@
+/* pages/workPage/workPage.wxss */
+page{
+  height: 100%;
+    background-color: aliceblue;
+}
+.main{
+  height: auto;
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+.item{
+  height: 240rpx;
+  width: 200rpx;
+  /* background-color: antiquewhite; */
+  margin: 20rpx;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.item .image{
+  border-radius: 10rpx;
+  width: 180rpx;
+  height: 180rpx;
+}
+.item .text{
+
+  height: 40rpx;
+  margin-top: -10rpx;
+  font-weight: 700;
+  font-size: 30rpx;
+  letter-spacing: 5rpx;
+  
+}
+.item .button{
+  
+  height: 220rpx;
+  width: 200rpx;
+  position: absolute;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0)
+}

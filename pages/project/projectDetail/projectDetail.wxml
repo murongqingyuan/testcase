@@ -1,0 +1,306 @@
+<!--pages/project/projectDetail/projectDetail.wxml-->
+<view>
+  <view wx:if="{{cardType=='Projects'}}" style="{{projectInfo.CloseStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">立项</view>
+        <view class="app_step_line" wx:if="{{projectInfo.OrderStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.BuildDate}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">工程项目</view>
+          <view class="app_item">{{projectInfo.Code}}</view>
+          <view class="app_item">{{projectInfo.Name}}</view>
+          <view class="app_item">{{projectInfo.CustomerName}}</view>
+          <!-- <view class="app_item">
+    
+           <memberCard memberJson="{{PrjManager}}" BigCard="{{false}}"></memberCard>
+          </view> -->
+          <view class="app_item">项目经理：{{projectInfo.PrjManagerName}}</view>
+        </view>
+        <view class="app_text_lv5" wx:if="{{projectInfo.BuildDocStatus}}">资料确认 {{projectInfo.BuildDocDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.OrderStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">签约</view>
+        <view class="app_step_line" wx:if="{{projectInfo.EntryStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.OrderDateTime}}</view>
+        <!-- <scroll-view scroll-x="true" class="app_container_vertical"> -->
+          <view class="app_detail_card">
+            <view class="app_item">签约金额 {{projectInfo.OrderMoney}}</view>
+            <view class="app_item">项目金额 {{projectInfo.ProjectMoney}}</view>
+            <view class="app_item">维修金额 {{projectInfo.RepairMoney}}</view>
+            <view class="app_item">设备成本预算 {{projectInfo.EqpMoneyBudget}}</view>
+            <view class="app_item">商务活动预算 {{projectInfo.BusinessMoneyBudget}}</view>
+            <view class="app_item">施工成本预算 {{projectInfo.ConstructMoneyBudget}}</view>
+            <view class="app_item">研发成本预算 {{projectInfo.DevelopMoneyBudget}}</view>
+          </view>
+          <view class="app_detail_card" wx:if="{{projectInfo.IsWithRepair}}">
+            <view class="app_item">保修</view>
+            <view class="app_item">保修经理 {{projectInfo.RepairManager}}</view>
+            <view class="app_item">保修起 {{projectInfo.RepairStartDate}}</view>
+            <view class="app_item">保修止 {{projectInfo.RepairEndDate}}</view>
+          </view>
+          <view class="app_detail_card" wx:if="{{projectInfo.IsEntrust}}">
+            <view class="app_item">委托实施</view>
+            <view class="app_item">实施经理 {{projectInfo.ConstructManager}}</view>
+          </view>
+        <!-- </scroll-view> -->
+        <view class="app_text_lv5" wx:if="{{projectInfo.OrderDocStatus}}">资料确认 {{projectInfo.OrderDocDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.EntryStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">进厂</view>
+        <view class="app_step_line" wx:if="{{projectInfo.InspectStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.EntryDateTime}}</view>
+        <view class="app_text_lv5" wx:if="{{projectInfo.EntryDocStatus}}">资料确认 {{projectInfo.EntryDocDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.InspectStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">验收</view>
+        <view class="app_step_line" wx:if="{{projectInfo.ForwardSettlementStatus||projectInfo.SettlementStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.InspectDateTime}}</view>
+        <view class="app_text_lv5" wx:if="{{projectInfo.InspectDocStatus}}">资料确认 {{projectInfo.InspectDocDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.ForwardSettlementStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">预结算</view>
+        <view class="app_step_line" wx:if="{{projectInfo.SettlementStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.BuildDocDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.SettlementStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">结算</view>
+        <view class="app_step_line" wx:if="{{projectInfo.ForwardSettlementDateTime}}"></view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.SettlementDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.CloseStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">关闭</view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.CloseDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_actionItem" wx:if="{{!projectInfo.BuildDocStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Edit">编辑</button>
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="BuildDoc">立项资料确认</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.BuildDocStatus&&!projectInfo.OrderStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Order">签约</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.OrderStatus&&!projectInfo.OrderDocStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="OrderDoc">签约资料确认</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.OrderDocStatus&&!projectInfo.EntryStatus}}">
+
+      <picker mode="date" value="{{EntryDate}}" start="2015-01-01" end="2030-12-31" data-id="EntryDate" bindchange="dateChange">
+        <view class="app_input {{checkEntryDate?'':'app_input_error'}}">
+          {{EntryDate==''?'选择进厂日期':EntryDate}}
+        </view>
+      </picker>
+
+      <button class="app_actionButton" class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Entry">进厂</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.EntryStatus&&!projectInfo.EntryDocStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="EntryDoc">进厂资料确认</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.EntryDocStatus&&!projectInfo.InspectStatus}}">
+      <picker mode="date" value="{{InspectDate}}" start="2015-01-01" end="2030-12-31" data-id="InspectDate" bindchange="dateChange">
+        <view class="app_input {{checkInspectDate?'':'app_input_error'}}">
+          {{InspectDate==''?'选择验收日期':InspectDate}}
+        </view>
+      </picker>
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Inspect">验收</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.InspectStatus&&!projectInfo.InspectDocStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="InspectDoc">验收资料确认</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.InspectDocStatus&&!projectInfo.CloseStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="ForwardSettlement" wx:if="{{!projectInfo.SettlementStatus&&!projectInfo.ForwardSettlementStatus}}">预结算</button>
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Settlement" wx:if="{{!projectInfo.SettlementStatus}}">结算</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.SettlementStatus&&!projectInfo.SettlementStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Close">关闭</button>
+    </view>
+  </view>
+  <view wx:if="{{cardType=='SaleProjects'}}" class="main" style="{{projectInfo.CloseStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">立项</view>
+        <view class="app_step_line" wx:if="{{projectInfo.OrderStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.BuildDate}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">销售项目</view>
+          <view class="app_item">{{projectInfo.Code}}</view>
+          <view class="app_item">{{projectInfo.Name}}</view>
+          <view class="app_item">{{projectInfo.CustomerName}}</view>
+          <view class="app_item">项目经理：{{projectInfo.PrjManagerName}}</view>
+        </view>
+
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.OrderStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">签约</view>
+        <view class="app_step_line" wx:if="{{projectInfo.EntryStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.OrderDateTime}}</view>
+        <scroll-view scroll-x="true" class="cardList">
+          <view class="app_detail_card">
+            <view class="app_item">签约金额 {{projectInfo.OrderMoney}}</view>
+          </view>
+        </scroll-view>
+        <view class="app_text_lv5" wx:if="{{projectInfo.OrderDocStatus}}">资料确认 {{projectInfo.OrderDocDateTime}}</view>
+      </view>
+    </view>
+
+    <view class="app_item_big" wx:if="{{projectInfo.CloseStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">关闭</view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.CloseDateTime}}</view>
+      </view>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{!projectInfo.OrderStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Edit">编辑</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.OrderStatus&&!projectInfo.OrderDocStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="OrderDoc">签约资料确认</button>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{projectInfo.OrderDocStatus&&!projectInfo.CloseStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Close">关闭</button>
+    </view>
+  </view>
+
+
+  <view wx:if="{{cardType=='RepairProjects'}}" class="main" style="{{projectInfo.CloseStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">立项</view>
+        <view class="app_step_line" wx:if="{{projectInfo.OrderStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.BuildDate}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">维修项目</view>
+          <view class="app_item">{{projectInfo.Code}}</view>
+          <view class="app_item">{{projectInfo.Name}}</view>
+          <view class="app_item">{{projectInfo.CustomerName}}</view>
+          <view class="app_item">项目经理：{{projectInfo.PrjManagerName}}</view>
+        </view>
+
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{projectInfo.OrderStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">签约</view>
+        <view class="app_step_line" wx:if="{{projectInfo.EntryStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.OrderDateTime}}</view>
+        <scroll-view scroll-x="true" class="cardList">
+          <view class="app_detail_card">
+            <view class="app_item">签约金额 {{projectInfo.OrderMoney}}</view>
+            <view class="app_item">保修起 {{projectInfo.RepairStartDate}}</view>
+            <view class="app_item">保修止 {{projectInfo.RepairEndDate}}</view>
+          </view>
+        </scroll-view>
+        <view class="app_text_lv5" wx:if="{{projectInfo.OrderDocStatus}}">资料确认 {{projectInfo.OrderDocDateTime}}</view>
+      </view>
+    </view>
+
+    <view class="app_item_big" wx:if="{{projectInfo.CloseStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">关闭</view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.CloseDateTime}}</view>
+      </view>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{!projectInfo.OrderStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Edit">编辑</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{projectInfo.OrderStatus&&!projectInfo.OrderDocStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="OrderDoc">签约资料确认</button>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{projectInfo.OrderDocStatus&&!projectInfo.CloseStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Close">关闭</button>
+    </view>
+  </view>
+
+
+  <view wx:if="{{cardType=='CorpProjects'}}" class="main" style="{{projectInfo.CloseStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">立项</view>
+        <view class="app_step_line" wx:if="{{projectInfo.OrderStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.BuildDate}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">公司项目</view>
+          <view class="app_item">{{projectInfo.Code}}</view>
+          <view class="app_item">{{projectInfo.Name}}</view>
+          <view class="app_item">成本预算 {{projectInfo.MoneyBudget}}</view>
+          <view class="app_item">项目经理 {{projectInfo.PrjManagerName}}</view>
+        </view>
+        <view class="app_text_lv5" wx:if="{{projectInfo.BuildDocStatus}}">资料确认 {{projectInfo.BuildDocDateTime}}</view>
+      </view>
+
+    </view>
+
+    <view class="app_item_big" wx:if="{{projectInfo.CloseStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv2">关闭</view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{projectInfo.CloseDateTime}}</view>
+      </view>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{!projectInfo.BuildDocStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Edit">编辑</button>
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="BuildDoc">立项资料确认</button>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{projectInfo.OrderDocStatus&&!projectInfo.CloseStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="Close">关闭</button>
+    </view>
+  </view>
+</view>

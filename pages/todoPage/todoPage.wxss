@@ -1,0 +1,9 @@
+/* pages/todoPage/todoPage.wxss */
+page{
+  height: 100%;
+}
+.main{
+  height: 100%;
+  background-color: azure;
+  padding: 10rpx 0rpx;
+}

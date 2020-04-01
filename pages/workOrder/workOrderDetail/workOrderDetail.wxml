@@ -1,0 +1,291 @@
+<!--pages/project/projectDetail/projectDetail.wxml-->
+<view>
+  <view wx:if="{{cardType=='PrjWorkOrder'}}" style="{{workOrderInfo.FinishStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">发布</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.AcceptStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.PublishDate}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">项目任务单</view>
+          <view class="app_item">{{workOrderInfo.Code}}</view>
+          <view class="app_item">{{workOrderInfo.ProjectCode}}</view>
+          <view class="app_item">{{workOrderInfo.ProjectName}}</view>
+          <view class="app_item">{{workOrderInfo.CustomerName}}</view>
+        </view>
+        <view class="app_detail_card">
+          <view class="app_item app_flex_center_start">
+            <view>发布</view>
+            <image src="{{Publisher.AvatarUrl||'../../images/user_unknown.png'}}" mode="aspectFill" class="app_avatar_smaller"></image>
+            <view>{{Publisher.Name}}</view>
+          </view>
+          <view class="app_item app_flex_center_start">
+            <view>检查</view>
+            <image src="{{Checker.AvatarUrl||'../../images/user_unknown.png'}}" mode="aspectFill" class="app_avatar_smaller"></image>
+            <view>{{Checker.Name}}</view>
+          </view>
+          <view class="app_item app_flex_center_start">
+            <view>执行</view>
+            <image src="{{Executor.AvatarUrl||'../../images/user_unknown.png'}}" mode="aspectFill" class="app_avatar_smaller"></image>
+            <view>{{Executor.Name}}</view>
+          </view>
+
+        </view>
+        <view class="app_detail_card">
+          <view class="app_item">
+            <view class="app_item_lv5">
+              {{workOrderInfo.Description}}
+            </view>
+          </view>
+          <view class="app_item app_flex_center_spaceBetween">
+            <view class="app_flex_center_start">指标
+              <view class="app_text_money">{{workOrderInfo.TargetValue}}</view>
+            </view>
+            <view class="app_flex_center_start">费用
+              <view class="app_text_money">{{workOrderInfo.Money}}</view>
+            </view>
+          </view>
+          <view class="app_item app_flex_center_spaceBetween">
+            <view class="app_item_lv5">{{workOrderInfo.StartDate}}</view>
+            <!-- <view>——30——</view> -->-
+            <view class="app_item_lv5">{{workOrderInfo.EndDate}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.AcceptStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">接受</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.ApplyCheckStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.AcceptDate}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.ApplyCheckStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">申请检查</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.CheckStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.ApplyCheckDate}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.CheckStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">检查通过</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.FinishStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.CheckDate}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.FinishStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">任务结束</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.ForwardSettlementStatus||workOrderInfo.SettlementStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.FinishDate}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.ForwardSettlementStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">预结算</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.SettlementStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.ForwardSettlementDateTime}}</view>
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.SettlementStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">结算</view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.SettlementDateTime}}</view>
+      </view>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{workOrderInfo.PublishStatus&&!workOrderInfo.AcceptStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="refuse">拒绝</button>
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="accpect">接受</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{workOrderInfo.AcceptStatus&&!workOrderInfo.ApplyCheckStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="applyCheck">申请检查</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{workOrderInfo.ApplyCheckStatus&&!workOrderInfo.CheckStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="applyCheck">检查通过</button>
+    </view>
+    <view class="app_actionItem" wx:if="{{workOrderInfo.CheckStatus&&!workOrderInfo.FinishStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="applyCheck">任务结束</button>
+    </view>
+  </view>
+
+
+  <view wx:if="{{cardType=='DptWorkOrder'}}" class="main" style="{{workOrderInfo.FinishStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">发布</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.AcceptStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.PublishDate}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">项目任务单</view>
+          <view class="app_item">{{workOrderInfo.Code}}</view>
+          <view class="app_item">{{workOrderInfo.ProjectCode}}</view>
+          <view class="app_item">{{workOrderInfo.ProjectName}}</view>
+          <view class="app_item">{{workOrderInfo.CustomerName}}</view>
+        </view>
+        <view class="app_detail_card">
+          <view class="app_item">发布人：{{publisher.Name}}</view>
+          <view class="app_item">检查人：{{Checker.Name}}</view>
+          <view class="app_item">执行人：{{Executor.Name}}</view>
+
+        </view>
+        <view class="app_detail_card">
+          <view class="app_item">
+            <view class="app_item_lv5">
+              {{workOrderInfo.Description}}
+            </view>
+          </view>
+          <view class="app_item app_flex_center_spaceBetween">
+            <view class="app_flex_center_start">指标
+              <view class="app_text_money">{{workOrderInfo.TargetValue}}</view>
+            </view>
+            <view class="app_flex_center_start">费用
+              <view class="app_text_money">{{workOrderInfo.Money}}</view>
+            </view>
+          </view>
+          <view class="app_item app_flex_center_spaceBetween">
+            <view class="app_item_lv5">{{workOrderInfo.StartDate}}</view>
+            <!-- <view>——30——</view> -->-
+            <view class="app_item_lv5">{{workOrderInfo.EndDate}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.AcceptStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">接受</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.FinishStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.AcceptDate}}</view>
+      </view>
+    </view>
+
+    <view class="app_item_big" wx:if="{{workOrderInfo.FinishStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">任务结束</view>
+
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.FinishDate}}</view>
+      </view>
+    </view>
+
+
+    <view class="app_actionItem" wx:if="{{workOrderInfo.PublishStatus&&!workOrderInfo.AcceptStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="refuse">拒绝</button>
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="accpect">接受</button>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{workOrderInfo.CheckStatus&&!workOrderInfo.FinishStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="applyCheck">任务结束</button>
+    </view>
+  </view>
+
+
+
+  <view wx:if="{{cardType=='CorpWorkOrder'}}" class="main" style="{{workOrderInfo.FinishStatus?'':'padding-bottom: 100rpx'}}">
+    <view class="app_item_big">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">发布</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.AcceptStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.PublishDate}}</view>
+        <view class="app_detail_card">
+          <view class="app_item">项目任务单</view>
+          <view class="app_item">{{workOrderInfo.Code}}</view>
+          <view class="app_item">{{workOrderInfo.ProjectCode}}</view>
+          <view class="app_item">{{workOrderInfo.ProjectName}}</view>
+          <view class="app_item">{{workOrderInfo.CustomerName}}</view>
+        </view>
+        <view class="app_detail_card">
+          <view class="app_item">发布人：{{publisher.Name}}</view>
+          <view class="app_item">检查人：{{Checker.Name}}</view>
+          <view class="app_item">执行人：{{Executor.Name}}</view>
+
+        </view>
+        <view class="app_detail_card">
+          <view class="app_item">
+            <view class="app_item_lv5">
+              {{workOrderInfo.Description}}
+            </view>
+          </view>
+          <view class="app_item app_flex_center_spaceBetween">
+            <view class="app_flex_center_start">指标
+              <view class="app_text_money">{{workOrderInfo.TargetValue}}</view>
+            </view>
+            <view class="app_flex_center_start">费用
+              <view class="app_text_money">{{workOrderInfo.Money}}</view>
+            </view>
+          </view>
+          <view class="app_item app_flex_center_spaceBetween">
+            <view class="app_item_lv5">{{workOrderInfo.StartDate}}</view>
+            <!-- <view>——30——</view> -->-
+            <view class="app_item_lv5">{{workOrderInfo.EndDate}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view class="app_item_big" wx:if="{{workOrderInfo.AcceptStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">接受</view>
+        <view class="app_step_line" wx:if="{{workOrderInfo.FinishStatus}}">
+        </view>
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.AcceptDate}}</view>
+      </view>
+    </view>
+
+    <view class="app_item_big" wx:if="{{workOrderInfo.FinishStatus}}">
+      <view class="app_step">
+        <view class="app_step_title app_text_lv3">任务结束</view>
+
+      </view>
+      <view class="app_container">
+        <view class="app_text_lv3">{{workOrderInfo.FinishDate}}</view>
+      </view>
+    </view>
+
+
+    <view class="app_actionItem" wx:if="{{workOrderInfo.PublishStatus&&!workOrderInfo.AcceptStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="refuse">拒绝</button>
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="accpect">接受</button>
+    </view>
+
+    <view class="app_actionItem" wx:if="{{workOrderInfo.CheckStatus&&!workOrderInfo.FinishStatus}}">
+      <button class="app_actionButton" bindtap="bindEdit" hover-class="app_actionButton_hover" data-action="applyCheck">任务结束</button>
+    </view>
+  </view>
+
+
+</view>

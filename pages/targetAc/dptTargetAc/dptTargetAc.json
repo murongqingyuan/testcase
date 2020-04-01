@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "targetAcCard": "../../public/targetAcCard/targetAcCard",
+    "searchBox": "../../public/searchBox/searchBox",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#07c160",
+  "navigationBarTitleText": "部门指标列表"
+}

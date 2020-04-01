@@ -1,0 +1,88 @@
+/* pages/add/addMember/addMember.wxss */
+
+.item {
+  background-color: #fffafa;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid gainsboro;
+  padding: 0rpx 20rpx;
+}
+
+.switchItem {
+  height: 100rpx;
+}
+
+.imageItem {
+  height: 150rpx;
+}
+
+.inputItem {
+  height: 100rpx;
+}
+
+.saveItem {
+  height: 120rpx;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  height: inherit;
+  width: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 30rpx;
+  letter-spacing: 2rpx;
+  font-weight: 600;
+  /* background-color: saddlebrown; */
+}
+
+.image {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+  background-color: gainsboro;
+  box-shadow: 0rpx 0rpx 2rpx gray;
+}
+
+.image:hover {
+  box-shadow: 0rpx 0rpx 4rpx skyblue;
+}
+
+.input {
+  background-color: rgb(255, 255, 255);
+  width: 400rpx;
+  height: 60rpx;
+  text-align: end;
+  padding: 0rpx 20rpx;
+  letter-spacing: 5rpx;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 2rpx gainsboro;
+}
+
+.picker {
+  background-color: rgb(255, 255, 255);
+  width: 400rpx;
+  height: 60rpx;
+  /* text-align: end; */
+  padding: 0rpx 20rpx;
+  letter-spacing: 5rpx;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 2rpx gainsboro;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.input:hover {
+  box-shadow: 0rpx 0rpx 4rpx skyblue;
+}
+
+.input_wrong {
+  box-shadow: 0rpx 0rpx 8rpx red;
+}

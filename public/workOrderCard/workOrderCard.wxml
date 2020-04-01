@@ -1,0 +1,89 @@
+<!--public/workOrderCard/workOrderCard.wxml-->
+<view>
+  <view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail">
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_daifabu.png" wx:if="{{!workOrderInfo.PublishStatus&&workOrderInfo.PublishDate==''}}"></image>
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_yijujue.png" wx:if="{{!workOrderInfo.PublishStatus&&!workOrderInfo.PublishDate==''}}"></image>
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_daijieshou.png" wx:if="{{workOrderInfo.PublishStatus&&!workOrderInfo.AcceptStatus}}"></image>
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_yijieshou.png" wx:if="{{workOrderInfo.AcceptStatus&&!workOrderInfo.ApplyCheckStatus}}"></image>
+
+
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_djc.png" wx:if="{{workOrderInfo.ApplyCheckStatus&&!workOrderInfo.CheckStatus}}"></image>
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_daiqueren.png" wx:if="{{workOrderInfo.CheckStatus&&!workOrderInfo.FinishStatus}}"></image>
+
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_daijiesuan.png" wx:if="{{workOrderInfo.FinishStatus&&!workOrderInfo.ForwardSettlementStatus&&!workOrderInfo.SettlementStatus}}"></image>
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_yiyujie.png" wx:if="{{workOrderInfo.ForwardSettlementStatus&&!workOrderInfo.SettlementStatus}}"></image>
+    <image class="app_image_status" mode="aspectFill" src="../../images/status_yijiesuan.png" wx:if="{{workOrderInfo.SettlementStatus}}"></image>
+    <view class="app_item app_flex_center_spaceBetween">
+      <view class="app_text_lv1">{{workOrderInfo.Code}}</view>
+      <view class="app_text_category" wx:if="{{cardType=='PrjWorkOrder'}}">项目任务</view>
+      <view class="app_text_category" wx:if="{{cardType=='DptWorkOrder'}}">部门任务</view>
+      <view class="app_text_category" wx:if="{{cardType=='CorpWorkOrder'}}">公司任务</view>
+    </view>
+
+    <view class="app_item">
+      <view class="app_text_lv1">{{workOrderInfo.ProjectCode}}</view>
+    </view>
+    <view class="app_item">
+      <view class="app_text_lv2"> {{workOrderInfo.ProjectName}}</view>
+    </view>
+    <view class="app_item">
+
+      <memberCard memberJson="{{Publisher}}" BigCard="{{false}}"></memberCard>
+      <!-- <image src="{{Publisher.AvatarUrl||'../../images/user_unknown.png'}}" mode="aspectFill" class="app_avatar_small"></image>
+        <view class="app_text_lv4">{{Publisher.Name}}</view> -->
+    </view>
+
+
+
+    <view class="app_item">
+      <view class="app_item_lv5">
+        {{workOrderInfo.Description}}
+      </view>
+    </view>
+    <view class="app_item app_flex_center_spaceBetween">
+      <view class="app_flex_center_start">指标
+        <view class="app_text_money">{{workOrderInfo.TargetValue}}</view>
+      </view>
+      <view class="app_flex_center_start">费用
+        <view class="app_text_money">{{workOrderInfo.Money}}</view>
+      </view>
+    </view>
+    <view class="app_item app_flex_center_spaceBetween">
+      <view class="app_item_lv5">起 {{workOrderInfo.StartDate}}</view>
+      <!-- <view>——30——</view> -->
+      <view class="app_item_lv5">止 {{workOrderInfo.EndDate}}</view>
+    </view>
+
+    <view class="app_item app_flex_center_end app_text_lv6">
+      {{workOrderInfo.PublishDate}}
+    </view>
+    <view class="app_item app_flex_center_spaceBetween" wx:if="{{!editable && !workOrderInfo.PublishStatus}}">
+      <!-- 未发布 -->
+      <button class="app_button app_button_card app_button_refuse" hover-class="app_button_refuse_hover">删除</button>
+      <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">发布</button>
+    </view>
+
+    <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable && workOrderInfo.PublishStatus && !workOrderInfo.AcceptStatus}}">
+      <!-- 已发布，未接受 -->
+      <button class="app_button app_button_card app_button_refuse" hover-class="app_button_refuse_hover">拒绝</button>
+      <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">接受</button>
+    </view>
+    <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable && workOrderInfo.AcceptStatus && !workOrderInfo.ApplyCheckStatus}}">
+      <!-- 已接受，未申请检查 -->
+      <view></view>
+      <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">申请检查</button>
+    </view>
+    <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable && workOrderInfo.ApplyCheckStatus && !workOrderInfo.CheckStatus}}">
+      <!-- 已申请检查，未检查 -->
+      <view></view>
+      <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">通过</button>
+    </view>
+    <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable && workOrderInfo.CheckStatus && !workOrderInfo.FinishStatus}}">
+      <!-- 已检查，未完成 -->
+      <view></view>
+      <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">完成</button>
+    </view>
+
+  </view>
+
+</view>

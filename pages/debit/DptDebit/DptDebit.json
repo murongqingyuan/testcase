@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "debitCard":"../../public/debitCard/debitCard",
+    "searchBox": "../../public/searchBox/searchBox",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#07c160",
+  "navigationBarTitleText": "部门转账记录"
+}

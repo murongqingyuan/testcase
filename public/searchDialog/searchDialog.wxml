@@ -1,0 +1,47 @@
+<!--public/searchDialog/searchDialog.wxml-->
+<!-- 遮罩层 -->
+<view wx:if="{{showDialog}}">
+  <view class="mask" bindtap="serachDialogHide"></view>
+
+  <view class="main" wx:if="{{Category=='company'||Category=='department'}}">
+    <view class="title">选择{{Category=='department'?'部门':'公司'}}</view>
+    <input class="input" value="{{input_searchkey}}" bindinput="inputChange"></input>
+    <view class="listView">
+      <rich-text wx:for="{{showItem}}" wx:key="index" wx:for-item="item" class="item" bindtap="bindSelect" data-name="{{item}}" disabled="true">
+        <text wx:for="{{item.title}}" wx:key="index" class="{{item.key == true ? 'searchHigh' : 'searchDark' }}">{{item.str}}</text>
+      </rich-text>
+      <!-- <view wx:for="{{DepartmentList}}" wx:key="index" class="item" bindtap="bindSelect" data-name="{{item}}">{{item.Name}} </view> -->
+    </view>
+    <view class="footer">
+      <button class="button" bindtap="serachDialogHide">取消</button>
+    </view>
+  </view>
+
+  <view class="main" wx:if="{{Category=='employee'||Category=='project'||Category=='workOrder'||Category=='customer'}}">
+    <view class="title">
+      <image src="{{showCorp?'../../images/icon_changeCorp_on.png':'../../images/icon_changeCorp_off.png'}}" class="image_icon" style="margin-left:20rpx;" mode="aspectFill" bindtap="bindShowCorp"></image>
+
+      选择{{Category=='employee'?'职员':(Category=='project'?'项目':'任务')}}
+      <image src="../../images/icon_reset.png" class="image_icon" mode="aspectFill" style="margin-right:20rpx;"></image>
+    </view>
+    <view style="display:flex;width:100%">
+      <view wx:if="{{showInitCorp}}" style="width:100%">
+        <view style="height:40rpx;padding:10rpx;display:flex;align-items:center">上海千帆科技股份有限公司</view>
+        <view class="listView">
+          <view wx:for="{{CompanyList}}" wx:key="index" class="item" bindtap="selectInitCorp" data-info="{{item}}">{{item.Name}}</view>
+        </view>
+      </view>
+      <view wx:if="{{!showInitCorp}}" style="width:100%">
+        <input class="input" value="{{input_searchkey}}" bindinput="inputChange"></input>
+        <view class="listView">
+          <rich-text wx:for="{{showItem}}" wx:key="index" wx:for-item="item" class="item" bindtap="bindSelect" data-name="{{item}}" disabled="true">
+            <text wx:for="{{item.title}}" wx:key="index" class="{{item.key == true ? 'searchHigh' : 'searchDark' }}">{{item.str}}</text>
+          </rich-text>
+        </view>
+      </view>
+    </view>
+    <view class="footer">
+      <button class="button" bindtap="serachDialogHide">取消</button>
+    </view>
+  </view>
+</view>

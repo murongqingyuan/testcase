@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "searchDialog": "../../public/searchDialog/searchDialog",
+    "test": "../../public/test"
+  },
+  "navigationBarBackgroundColor": "#101C3e",
+  "navigationBarTextStyle": "white",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "test"
+}

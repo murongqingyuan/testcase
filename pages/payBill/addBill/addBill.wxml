@@ -1,0 +1,150 @@
+<!--pages/detail/detailMember/detailMember.wxml-->
+<searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+<view wx:if="{{cardFrom=='travel'}}">
+
+
+  <view class="app_item app_flex_center_spaceBetween " wx:if="{{Code!=''}}">
+    <view class="app_label">单号</view>
+    <input class="app_input" value="{{Code}}" data-id="Code" bindinput="inputChange" type="text" confirm-type="next" disabled></input>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">报销类型</view>
+    <radio-group class="radio_group" bindchange="radioChange">
+      <radio class="radio" wx:for-items="{{CategoryList}}" wx:key="index" value="{{item}}" checked="{{item==Category}}">
+        <text>{{item}}</text>
+      </radio>
+    </radio-group>
+
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">项目</view>
+    <button class="app_button app_button_long {{checkProject?'':'app_button_error'}}" bindtap="showDialog" data-type="project" hover-class="app_button_hover">{{ProjectName==''?'选择项目':ProjectName}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween " wx:if="{{Category=='任务报销'&&ProjectName!=''}}">
+    <view class="app_label">任务</view>
+    <button class="app_button app_button_long {{checkWorkOrder?'':'app_button_error'}}" bindtap="showDialog" data-type="workOrder" hover-class="app_button_hover">{{WorkOrderCode==''?'选择任务':WorkOrderCode}}</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">金额</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" value="{{Money}}" data-id="Money" bindinput="inputChange" placeholder="请填申请金额" type="text" confirm-type="next"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">天数</view>
+    <input class="app_input {{checkDays?'':'app_input_error'}}" value="{{TravelDays}}" data-id="TravelDays" bindinput="inputChange" placeholder="请填申请天数" type="text" confirm-type="next"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">备注</view>
+    <textarea placeholder="填写备注" value="{{Memo}}" class="app_input {{checkMemo?'':'app_input_error'}}" auto-height maxlength="-1" bindblur="bindblur"></textarea>
+
+  </view>
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_save" bindtap="bindCheck" hover-class="app_button_save_hover">保存</button>
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+
+</view>
+
+<view wx:if="{{cardFrom=='department'}}">
+  <view class="app_item app_flex_center_spaceBetween " wx:if="{{Code!=''}}">
+    <view class="app_label">单号</view>
+    <input class="app_input" value="{{Code}}" data-id="Code" bindinput="inputChange" type="text" confirm-type="next" disabled></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">类型</view>
+    <radio-group class="radio_group" bindchange="radioChange">
+      <radio class="radio" wx:for-items="{{CategoryList}}" wx:key="index" value="{{item}}" checked="{{item==Category}}">
+        <text>{{item}}</text>
+      </radio>
+    </radio-group>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">金额</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" value="{{Money}}" data-id="Money" bindinput="inputChange" placeholder="请填申请金额" type="text" confirm-type="next"></input>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">备注</view>
+    <textarea placeholder="填写备注" value="{{Memo}}" class="app_input {{checkMemo?'':'app_input_error'}}" auto-height maxlength="-1" bindblur="bindblur"></textarea>
+  </view>
+
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_save" bindtap="bindCheck" hover-class="app_button_save_hover">保存</button>
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>
+
+<view wx:if="{{cardFrom=='project'}}">
+
+  <view class="app_item app_flex_center_spaceBetween " wx:if="{{Code!=''}}">
+    <view class="app_label">单号</view>
+    <input class="app_input" value="{{Code}}" data-id="Code" bindinput="inputChange" type="text" confirm-type="next" disabled></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">类型</view>
+    <radio-group class="radio_group" bindchange="radioChange">
+      <radio class="radio" wx:for-items="{{CategoryList}}" wx:key="index" value="{{item}}" checked="{{item==Category}}">
+        <text>{{item}}</text>
+      </radio>
+    </radio-group>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">项目</view>
+    <button class="app_button app_button_long {{checkProject?'':'app_button_error'}}" bindtap="showDialog" data-type="project" hover-class="app_button_hover">{{ProjectName==''?'选择项目':ProjectName}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">金额</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" value="{{Money}}" data-id="Money" bindinput="inputChange" placeholder="请填申请金额" type="text" confirm-type="next"></input>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">备注</view>
+    <textarea placeholder="填写备注" value="{{Memo}}" class="app_input {{checkMemo?'':'app_input_error'}}" auto-height maxlength="-1" bindblur="bindblur"></textarea>
+  </view>
+
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_save" bindtap="bindCheck" hover-class="app_button_save_hover">保存</button>
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>
+
+<view wx:if="{{cardFrom=='outMoneyBill'}}">
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">负账</view>
+    <input class="app_input" value="1000" data-id="Code" bindinput="inputChange" type="text" confirm-type="next" disabled></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">可申请金额</view>
+    <input class="app_input" value="1000" data-id="Code" bindinput="inputChange" type="text" confirm-type="next" disabled></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween " wx:if="{{Code!=''}}">
+    <view class="app_label">单号</view>
+    <input class="app_input" value="{{Code}}" data-id="Code" bindinput="inputChange" type="text" confirm-type="next" disabled></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">金额</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" value="{{Money}}" data-id="Money" bindinput="inputChange" placeholder="请填申请金额" type="text" confirm-type="next"></input>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween ">
+    <view class="app_label">备注</view>
+    <textarea placeholder="填写备注" value="{{Memo}}" class="app_input {{checkMemo?'':'app_input_error'}}" auto-height maxlength="-1" bindblur="bindblur"></textarea>
+  </view>
+
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_save" bindtap="bindCheck" hover-class="app_button_save_hover">保存</button>
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>

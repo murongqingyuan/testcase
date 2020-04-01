@@ -1,0 +1,175 @@
+/* public/memberCard/memberCard.wxss */
+@import "../../app.wxss";
+
+page {
+  height: 100%;
+  background-color: #efeeee;
+}
+
+.main {
+  /* background-color: saddlebrown; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.imageBox {
+  height: 160rpx;
+  width: 160rpx;
+  margin-left: 10rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.imageBox_small {
+  height: 80rpx;
+  width: 80rpx;
+  margin-left: 10rpx;
+  overflow: hidden;
+}
+
+.imageBox_small .image_small {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+}
+
+.imageBox .image {
+  height: 160rpx;
+  width: 160rpx;
+}
+
+.info_small {
+  margin-left: 20rpx;
+  height: 100rpx;
+  width: auto;
+ 
+}
+
+.info_small .name {
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 10rpx;
+}
+.info_small .department {
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-left: 5rpx;
+  letter-spacing: 2rpx;
+}
+.info_small .contact {
+  height: 60rpx;
+}
+.info_small .contact .item {
+  height: 30rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 24rpx;
+  color: gray;
+  letter-spacing: 1rpx;
+}
+.info {
+  margin-left: 50rpx;
+  height: 160rpx;
+  width: auto;
+}
+
+.info .name {
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 40rpx;
+  font-weight: 700;
+  letter-spacing: 10rpx;
+}
+
+.info .contact {
+  height: 80rpx;
+}
+
+.info .contact .item {
+  height: 40rpx;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 24rpx;
+  color: gray;
+  letter-spacing: 2rpx;
+}
+
+/* .department {
+  height: 180rpx;
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-lr;
+  letter-spacing: 20rpx;
+  font-size: 40rpx;
+  font-weight: 800;
+  color: white;
+} */
+
+.yf {
+  background-color: antiquewhite;
+}
+
+.zg {
+  background-color: salmon;
+}
+
+.gc {
+  background-color: rgb(196, 177, 69);
+}
+
+.sh {
+  background-color: rgb(171, 238, 158);
+}
+
+.sc {
+  background-color: rgb(229, 231, 97);
+}
+
+.mainadd {
+  /* background-color: saddlebrown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180rpx;
+}
+
+.iamgeadd {
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 50%;
+  background-color: skyblue;
+  margin-left: 10rpx;
+}
+
+.departmentadd {
+  height: 180rpx;
+  width: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-lr;
+  letter-spacing: 20rpx;
+  font-size: 40rpx;
+  font-weight: 800;
+  color: white;
+  background-color: skyblue;
+}
+
+.add {
+  background-color: gainsboro;
+}

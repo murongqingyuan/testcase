@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "projectCard": "../../public/projectCard/projectCard",
+   
+    "searchBox": "../../public/searchBox/searchBox",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#efeeee",
+  "navigationBarTitleText": "项目列表",
+  "enablePullDownRefresh": false
+}

@@ -1,0 +1,113 @@
+<view class="main">
+  <view class="head">
+
+    <image class="image" src="../../images/user.png"></image>
+    <view class="myInfo">
+      <view class="name">杨杰</view>
+      <view class="department">
+        <image src="../../images/icon_department.png" class="icon" mode="aspectFit"></image>
+        研发部
+        <view class="leader">(曹胜利)</view>
+      </view>
+      <!-- <view class="mobile">
+        <image src="../../images/icon_mobile1.png" class="icon" mode="aspectFit"></image>
+        15021318167</view>
+      <view class="email">
+        <image src="../../images/icon_email1.png" class="icon" mode="aspectFit"></image>
+        yangjie@qianfan.com.cn</view> -->
+      <view class="duty2">
+        <view wx:if="{{isBoss}}" class="label">总经理</view>
+        <view wx:if="{{isManageAssistant}}" class="label">管理层</view>
+        <view wx:if="{{isDptManager}}" class="label">部门经理</view>
+        <view wx:if="{{isProjectManager}}" class="label">项目经理</view>
+        <view wx:if="{{isHR}}" class="label">人事</view>
+        <view wx:if="{{isFinance}}" class="label">财务</view>
+        <view wx:if="{{isCashier}}" class="label">出纳</view>
+        <!-- <view wx:if="{{isInfoManager}}" class="label">信息管理员</view>
+        <view wx:if="{{isDocumentManager}}" class="label">文档管理员</view>
+        <view wx:if="{{isStorageManager}}" class="label">仓库管理员</view> -->
+        <view wx:if="{{isPurchasing}}" class="label">采购</view>
+      </view>
+    </view>
+
+
+
+  </view>
+  <!-- <view class="duty">
+    <view wx:if="{{isBoss}}" class="label">总经理</view>
+    <view wx:if="{{isManageAssistant}}" class="label">管理层</view>
+    <view wx:if="{{isDptManager}}" class="label">部门经理</view>
+    <view wx:if="{{isProjectManager}}" class="label">项目经理</view>
+    <view wx:if="{{isHR}}" class="label">人事</view>
+    <view wx:if="{{isFinance}}" class="label">财务</view>
+    <view wx:if="{{isCashier}}" class="label">出纳</view>
+      <view wx:if="{{isInfoManager}}" class="label">信息管理员</view>
+      <view wx:if="{{isDocumentManager}}" class="label">文档管理员</view>
+      <view wx:if="{{isStorageManager}}" class="label">仓库管理员</view>
+      <view wx:if="{{isPurchasing}}" class="label">采购</view>
+  </view> -->
+  <view class="router">
+    <button class="{{showTarget?'buttonOn':'buttonOff'}}" bindtap="showTarget">指标</button>
+    <view style="width:4rpx"></view>
+    <button class="{{showTarget?'buttonOff':'buttonOn'}}" bindtap="showMoney">费用</button>
+  </view>
+  <view class="body">
+    <view wx:if="{{showTarget}}" class="target">
+      <view class="chart">
+
+        <view class="right">
+          <!-- 超出50%，再增加这里sx2的旋转度数 -->
+
+          <view class="smallCircle"></view>
+          <view class="sx1"></view>
+          <view class="sx2" style="transform:rotate({{currentTarget/targetAmount>1?'-180deg':(currentTarget/targetAmount>0.5?((currentTarget/targetAmount)-0.5)*-360+'deg':'0deg')}} )"></view>
+
+        </view>
+        <view class="left">
+          <!-- 不足50%，修改这里sx2的旋转度数 -->
+          <view class="smallCircle"></view>
+          <view class="sx1"></view>
+          <view class="sx2" style="transform:rotate({{currentTarget/targetAmount<0.5?(currentTarget/targetAmount)*-360+'deg':'-180deg'}});"></view>
+
+        </view>
+
+        <view class="mask"></view>
+        <view class="process">{{(currentTarget*100/targetAmount)}}%</view>
+      </view>
+
+      <view class="data">
+        <view>额定指标：{{targetAmount}}</view>
+        <view>当前完成：{{currentTarget}}</view>
+      </view>
+
+    </view>
+    <view wx:if="{{!showTarget}}" class="target">
+      <view class="chart">
+        <view class="right">
+          <!-- 超出50%，再增加这里sx2的旋转度数 -->
+          <view class="smallCircle"></view>
+          <view class="sx1"></view>
+          <view class="sx2" style="transform:rotate({{currentCost/costAmount>1?'-180deg':(currentCost/costAmount>0.5?((currentCost/costAmount)-0.5)*-360+'deg':'0deg')}} )"></view>
+        </view>
+        <view class="left">
+          <!-- 不足50%，修改这里sx2的旋转度数 -->
+          <view class="smallCircle"></view>
+          <view class="sx1"></view>
+          <view class="sx2" style="transform:rotate({{currentCost/costAmount<0.5?(currentCost/costAmount)*-360+'deg':'-180deg'}});"></view>
+
+        </view>
+
+        <view class="mask"></view>
+        <view class="process">{{(currentCost*100/costAmount)}}%</view>
+      </view>
+      <view class="data">
+        <view>总费用：{{costAmount}}</view>
+        <view>已使用：{{currentCost}}</view>
+      </view>
+
+    </view>
+
+  </view>
+
+
+</view>

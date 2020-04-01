@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "memberCard": "../../public/memberCard/memberCard",
+    "searchBox": "../../public/searchBox/searchBox",
+    "loading": "../../public/loading/loading"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "公司成员"
+}

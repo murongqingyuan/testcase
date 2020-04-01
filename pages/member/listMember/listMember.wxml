@@ -1,0 +1,23 @@
+<!--pages/listMember/listMember.wxml-->
+<view>
+  <searchBox showDate="{{false}}" bind:search="search" bind:reset="reset" bind:add="bindShowDialog"></searchBox>
+  <view style="height:10rpx;">
+    <!-- 防止margin-top 垂直方向塌陷，在第一个元素前增加空元素。 -->
+  </view>
+  <view class="app_pageItem">
+    <view class="app_text">共 {{totalCount}} 人
+    </view>
+    <view class="app_text" bindtap="scrollTop">返回顶部</view>
+  </view>
+
+  <scroll-view scroll-y="{{true}}" style="height:{{windowHeight-130}}rpx;margin-top: 70rpx;" refresher-enabled="true" bindrefresherrefresh="bindRefresh" refresher-triggered="{{isRefresh}}" scroll-top='{{scrollTopNum}}' scroll-with-animation="true">
+    <loading position="center" wx:if="{{!inited}}"></loading>
+    <loading position="bottom" wx:if="{{loadMore}}"></loading>
+
+    <memberCard wx:for="{{memberList}}" wx:key="index" wx:for-item="item" memberId="{{item.ID}}" memberJson="{{item}}"></memberCard>
+
+  </scroll-view>
+
+
+
+</view>

@@ -1,0 +1,25 @@
+<!--pages/debit/addDptDebit/addDptDebit.wxml-->
+<view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">可用余额</view>
+    <view class="app_text_lv1 app_flex_center_start" style="width:440rpx;height:80rpx;">{{TotMoney}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">部门</view>
+      <button class="app_button app_button_long {{checkDepartmentName?'':'app_button_error'}}" bindtap="showDialog" data-action="prjManager" hover-class="app_button_hover">{{DepartmentName==''?'选择部门':DepartmentName}}</button>
+    
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">金额</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" value="{{Money}}" type="number" bindinput="bindInput" placeholder="转账金额"></input>
+  </view>
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+
+  <searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+
+</view>

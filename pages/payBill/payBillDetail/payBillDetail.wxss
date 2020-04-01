@@ -1,0 +1,249 @@
+/* pages/detailBxd/detailBxd.wxss */
+
+page {
+  height: 100%;
+  width: 100%;
+  background-color: #efeeee;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 150rpx;
+  overflow-x: hidden;
+}
+
+.submiter {
+  height: auto;
+  width: 100%;
+  padding: 20rpx;
+  display: flex;
+  border-bottom: 4rpx dashed gray;
+}
+
+.submiter .image {
+  height: 140rpx;
+  width: 140rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.submiter .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0rpx 50rpx;
+}
+
+.info .name {
+  font-size: 50rpx;
+  letter-spacing: 10rpx;
+}
+
+.info .department {
+  font-size: 32rpx;
+  letter-spacing: 3rpx;
+}
+
+.steps {
+  margin-top: 20rpx;
+  height: 60rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.steps .step {
+  width: 60rpx;
+  height: 60rpx;
+  background-color: gainsboro;
+  border-radius: 50%;
+  box-shadow: 0rpx 0rpx 2rpx gainsboro;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.steps .stepR {
+  width: 60rpx;
+  height: 60rpx;
+  background-color: skyblue;
+  border-radius: 50%;
+  box-shadow: 0rpx 0rpx 2rpx gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+/* .steps .stepW {
+  width: 60rpx;
+  height: 60rpx;
+  background-color: red;
+  border-radius: 50%;
+  box-shadow: 0rpx 0rpx 2rpx gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+} */
+
+.steps
+.stepT {
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-size: 22rpx;
+  color: white;
+  font-weight: 600;
+}
+
+.step .icon {
+  height: 0rpx;
+  width: 0rpx;
+}
+
+.stepR .icon {
+  height: 0rpx;
+  width: 0rpx;
+}
+
+.stepW .icon {
+  height: 0rpx;
+  width: 0rpx;
+}
+
+.steps .lineBg {
+  position: absolute;
+  width: 75%;
+  height: 10rpx;
+  background-color: gainsboro;
+  z-index: 77;
+}
+
+.steps .lineShow0 {
+  position: absolute;
+  width: 0%;
+  margin-left: -50%;
+  height: 10rpx;
+  background-color: skyblue;
+  z-index: 88;
+}
+
+.steps .lineShow1 {
+  position: absolute;
+  width: 25%;
+  margin-left: -25%;
+  height: 10rpx;
+  background-color: skyblue;
+  z-index: 88;
+}
+
+.steps .lineShow2 {
+  position: absolute;
+  width: 50%;
+  margin-left: -12.5%;
+  height: 10rpx;
+  background-color: skyblue;
+  z-index: 88;
+}
+
+.steps .lineShow3 {
+  position: absolute;
+  width: 75%;
+  height: 10rpx;
+  background-color: skyblue;
+  z-index: 88;
+}
+
+.body {
+  height: auto;
+  width: 100%;
+  padding: 0rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  height: 60rpx;
+  width: auto;
+  padding: 20rpx 50rpx;
+  line-height: 40rpx;
+  font-size: 40rpx;
+  letter-spacing: 5rpx;
+  font-weight: 700;
+}
+
+.item {
+  height: auto;
+  padding: 10rpx 25rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* justify-content: start; */
+}
+
+.label {
+  color: gray;
+  width: 200rpx;
+  text-align: center;
+}
+
+.value {
+  width: 500rpx;
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+  font-weight: 600;
+  text-align: start;
+}
+
+.amount {
+  height: 50rpx;
+  padding: 10rpx 0;
+  font-size: 40rpx;
+  letter-spacing: 2rpx;
+  color: red;
+}
+
+.body
+.time {
+  height: 60rpx;
+  font-size: 32rpx;
+  letter-spacing: 0rpx;
+}
+
+.foot {
+  position: fixed;
+  bottom: 0rpx;
+  margin: 0rpx 0rpx;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.foot .reject {
+  letter-spacing: 5rpx;
+  background-color: orange;
+  color: white;
+}
+
+.reject_hover {
+  background-color: rgb(199, 130, 1) !important;
+}
+
+.foot .adopt {
+  letter-spacing: 5rpx;
+  background-color: #07c160;
+  color: white;
+}
+
+.adopt_hover {
+  background-color: #099e51 !important;
+}

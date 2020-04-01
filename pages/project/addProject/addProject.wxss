@@ -1,0 +1,8 @@
+/* pages/project/addProject/addProject.wxss */
+
+page {
+  height: 100%;
+}
+
+
+

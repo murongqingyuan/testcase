@@ -1,0 +1,71 @@
+/* pages/workOrder/workOrderList/workOrderList.wxss */
+
+.selectShow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s;
+  z-index: 9;
+}
+
+.selectHidden {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.mask {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #efeeee;
+  opacity: 0.8;
+}
+
+.itemBox {
+  position: absolute;
+  height: 600rpx;
+  width: 400rpx;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  z-index: 101;
+  margin-left: -200rpx;
+  margin-top: -300rpx;
+  background-color: #efeeee;
+  border-radius: 20rpx;
+  box-shadow: -12rpx -12rpx 32rpx rgba(255, 255, 255, 0.9),
+                12rpx 12rpx 22rpx rgba(217, 210, 200, 0.9);
+}
+
+.itemBox .itemButton {
+  height: 100rpx;
+  margin: 10rpx;
+  padding: 0rpx;
+  width: 300rpx;
+  border-radius: 20rpx;
+  background-color: #efeeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -6rpx -6rpx 16rpx rgba(255, 255, 255, 0.9),
+                6rpx 6rpx 11rpx rgba(217, 210, 200, 0.6);
+}
+
+.itemBox .itemButton_hover {
+  box-shadow: inset 6px 6rpx 16rpx rgb(211, 208, 205, 0.8),
+                inset -6rpx -6rpx 8rpx rgba(255, 255, 255, 0.8);
+}
+
+
+
+

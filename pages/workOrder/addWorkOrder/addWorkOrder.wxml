@@ -1,0 +1,146 @@
+<!--pages/project/addProject/addProject.wxml-->
+<searchDialog id="searchDialog" showDialog="{{showDialog}}" bind:dialogSelect="dialogSelect" bind:hideDialog="hideDialog"></searchDialog>
+<!-- 项目任务单 -->
+<view class="app_main" wx:if="{{workOrderType=='PrjWorkOrder'}}">
+
+  <view class="app_item">
+    <view class="app_text_lv1">项目任务</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目</view>
+    <button class="app_button app_button_long {{checkProject?'':'app_button_error'}}" bindtap="showDialog" data-action="project" hover-class="app_button_hover">{{ProjectCode==''?'选择项目':ProjectName}}</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">检查人</view>
+    <button class=" app_button app_button_long {{checkChecker?'':'app_button_error'}}"  bindtap="showDialog" data-action="checker" hover-class="app_button_hover">{{Checker==''?'选择检查人':Checker.Name}}</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">执行人</view>
+    <button class=" app_button app_button_long {{checkExecutor?'':'app_button_error'}}"  bindtap="showDialog" data-action="executor" hover-class="app_button_hover">{{Executor==''?'选择执行人':Executor.Name}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">指标</view>
+    <input class="app_input {{checkTargetValue?'':'app_input_error'}}" placeholder="填写任务指标" value="{{TargetValue}}" bindinput="inputChange" data-id="TargetValue" type="digit"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">费用</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" placeholder="填写任务费用" value="{{Money}}" bindinput="inputChange" data-id="Money" type="digit"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务起日</view>
+    <picker mode="date" value="{{StartDate}}" start="2015-01-01" end="2025-12-31" bindchange="startDateChange">
+      <button class=" app_button app_button_long {{checkStartDate?'':'app_button_error'}}" hover-class="app_button_hover"> {{StartDate==''?'选择任务开始日期':StartDate}}</button>
+
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务止日</view>
+    <picker mode="date" value="{{EndDate}}" start="2015-01-01" end="2025-12-31" bindchange="endDateChange">
+      <button class=" app_button app_button_long {{checkEndDate?'':'app_button_error'}}" hover-class="app_button_hover"> {{EndDate==''?'选择任务结束日期':EndDate}}</button>
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务描述</view>
+    <textarea class="app_input {{checkDescription?'':'app_input_error'}}" value="{{Description}}" bindinput="inputChange" data-id="Description" auto-height="true" maxlength="-1" placeholder="填写任务描述"></textarea>
+  </view>
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>
+
+<!-- 公司项目任务 -->
+<view class="app_main" wx:if="{{workOrderType=='CorpWorkOrder'}}">
+
+  <view class="app_item ">
+    <view class="app_text_lv1">公司任务</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">项目</view>
+    <button class=" app_button app_button_long {{checkProject?'':'app_button_error'}}"  bindtap="showDialog" data-action="project" hover-class="app_button_hover">{{ProjectCode==''?'选择项目':ProjectName}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">执行人</view>
+    <button class=" app_button app_button_long {{checkExecutor?'':'app_button_error'}}"  bindtap="showDialog" data-action="executor" hover-class="app_button_hover">{{Executor==''?'选择执行人':Executor.Name}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">指标</view>
+    <input class="app_input {{checkTargetValue?'':'app_input_error'}}" placeholder="填写任务指标" value="{{TargetValue}}" bindinput="inputChange" data-id="TargetValue" type="digit"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">费用</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" placeholder="填写任务费用" value="{{Money}}" bindinput="inputChange" data-id="Money" type="digit"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务起日</view>
+    <picker mode="date" value="{{StartDate}}" start="2015-01-01" end="2025-12-31" bindchange="startDateChange">
+      <button class=" app_button app_button_long {{checkStartDate?'':'app_button_error'}}" hover-class="app_button_hover"> {{StartDate==''?'选择任务开始日期':StartDate}}</button>
+
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务止日</view>
+    <picker mode="date" value="{{EndDate}}" start="2015-01-01" end="2025-12-31" bindchange="endDateChange">
+      <button class=" app_button app_button_long {{checkEndDate?'':'app_button_error'}}"  hover-class="app_button_hover"> {{EndDate==''?'选择任务结束日期':EndDate}}</button>
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务描述</view>
+    <textarea class="app_input {{checkDescription?'':'app_input_error'}}" value="{{Description}}" bindinput="inputChange" data-id="Description" auto-height="true" maxlength="-1" placeholder="填写任务描述"></textarea>
+  </view>
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+</view>
+
+<!-- 部门任务 -->
+<view class="app_main" wx:if="{{workOrderType=='DptWorkOrder'}}">
+
+  <view class="app_item ">
+    <view class="app_text_lv1">部门任务</view>
+  </view>
+
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">执行人</view>
+    <button class=" app_button app_button_long {{checkExecutor?'':'app_button_error'}}"  bindtap="showDialog" data-action="executor" hover-class="app_button_hover">{{Executor==''?'选择执行人':Executor.Name}}</button>
+  </view>
+
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">指标</view>
+    <input class="app_input {{checkTargetValue?'':'app_input_error'}}" placeholder="填写任务指标" value="{{TargetValue}}" bindinput="inputChange" data-id="TargetValue" type="digit"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">费用</view>
+    <input class="app_input {{checkMoney?'':'app_input_error'}}" placeholder="填写任务费用" value="{{Money}}" bindinput="inputChange" data-id="Money" type="digit"></input>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务起日</view>
+    <picker mode="date" value="{{StartDate}}" start="2015-01-01" end="2025-12-31" bindchange="startDateChange">
+      <button class=" app_button app_button_long {{checkStartDate?'':'app_button_error'}}"  hover-class="app_button_hover"> {{StartDate==''?'选择任务开始日期':StartDate}}</button>
+
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务止日</view>
+    <picker mode="date" value="{{EndDate}}" start="2015-01-01" end="2025-12-31" bindchange="endDateChange">
+      <button class=" app_button app_button_long {{checkEndDate?'':'app_button_error'}}" hover-class="app_button_hover"> {{EndDate==''?'选择任务结束日期':EndDate}}</button>
+    </picker>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween">
+    <view class="app_label">任务描述</view>
+    <textarea class="app_input {{checkDescription?'':'app_input_error'}}" value="{{Description}}" bindinput="inputChange" data-id="Description" auto-height="true" maxlength="-1" placeholder="填写任务描述"></textarea>
+
+  </view>
+
+
+  <view class="app_item app_flex_center_center" style="margin-top:20rpx">
+    <button class="app_button app_button_agree" bindtap="bindCheck" hover-class="app_button_agree_hover">确认</button>
+  </view>
+
+</view>

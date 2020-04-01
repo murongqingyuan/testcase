@@ -1,0 +1,44 @@
+<!-- 加班申请 -->
+<view class="app_card {{showItem?'app_show':'app_hidden'}}" bindtap="showDetail" wx:if="{{cardFrom=='overTime'}}">
+
+  <view class="app_item" wx:if="{{editable}}">
+    <view class="app_text_category app_flex_center_end">加班申请</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv3">{{overTimeInfo.StartDate}} - {{overTimeInfo.FinishDate}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv2">{{overTimeInfo.ProjectName}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1 app_text_money">{{overTimeInfo.Duration}}</view>
+  </view>
+  <view class="app_item">
+    <view class="app_text_lv1">{{overTimeInfo.Description}}</view>
+  </view>
+  <view class="app_item app_flex_center_start" style="margin:10rpx 0;">
+    <memberCard  memberJson="{{applyer}}" BigCard="{{false}}" ></memberCard>
+  </view>
+  <!-- <view class="app_item">
+    <view class="app_text_lv5">{{overTimeInfo.Memo}}</view>
+  </view> -->
+  <view class="app_item">
+    <view class="app_text_lv6 app_flex_center_end" wx:if="{{overTimeInfo.SubmitStatus}}">{{overTimeInfo.SubmitDateTime}}</view>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&overTimeInfo.BillCheckStatus&&!overTimeInfo.PayStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">支付确认</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&overTimeInfo.DptCheckStatus&&!overTimeInfo.BillCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{editable&&overTimeInfo.SubmitStatus&&!overTimeInfo.DptCheckStatus}}">
+    <button class="app_button app_button_card app_button_refuse " hover-class="app_button_refuse_hover">驳回</button>
+    <button class="app_button app_button_card app_button_agree " hover-class="app_button_agree_hover">通过</button>
+  </view>
+  <view class="app_item app_flex_center_spaceBetween" wx:if="{{!overTimeInfo.SubmitStatus}}">
+    <view></view>
+    <button class="app_button app_button_card app_button_agree" hover-class="app_button_agree_hover">提交</button>
+  </view>
+</view>

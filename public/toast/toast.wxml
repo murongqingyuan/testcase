@@ -1,0 +1,8 @@
+<view class='toast-out' wx:if='{{isShow}}'>
+  <view class='toast-in'>
+    <image src="{{src}}" class="toast-icon"></image>
+    <view class='toast-txt'>
+      {{txt}}
+    </view>
+  </view>
+</view>

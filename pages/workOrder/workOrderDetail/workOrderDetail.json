@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "memberCard": "../../public/memberCard/memberCard",
+    
+    "searchDialog": "../../public/searchDialog/searchDialog"
+  },
+  "navigationBarBackgroundColor": "#efeeee",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "任务详情"
+}

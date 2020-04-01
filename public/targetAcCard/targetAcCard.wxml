@@ -1,0 +1,23 @@
+<!--public/moneyAcCard/moneyAcCard.wxml-->
+<view class="app_card {{showItem?'app_show':'app_hidden'}}">
+  <view class="main">
+    <view class="employee">
+      <image src="../../images/user_me.jpg" mode="aspectFill" class="image"></image>
+      <view class="name">{{moneyAcInfo.EmployeeName}}</view>
+    </view>
+    <view class="info">
+      <view class="category">{{moneyAcInfo.Category}}
+        <view class="money">{{moneyAcInfo.TargetValue}}</view>
+      </view>
+
+      <view class="project">{{moneyAcInfo.ProjectCode}}-{{moneyAcInfo.ProjectName}}</view>
+      <view class="workOrder">{{moneyAcInfo.WorkOrderCode}}</view>
+
+    </view>
+  </view>
+  <view class="foot">
+    <view>{{moneyAcInfo.DateTime}}</view>
+  </view>
+
+</view>
+<!-- 任务税收/项目结算税收/部门任务支出/清算转入 -->

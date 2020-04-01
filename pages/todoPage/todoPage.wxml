@@ -1,0 +1,5 @@
+<!--pages/todoPage/todoPage.wxml-->
+<view class="main">
+  <bxdCard editable="{{true}}" vindex="1" bxdId="1" code="BX2020021700002" category="项目" submitAccount="杨杰" projectCode="GC19044" projectName="湖北武汉中原电子产线项目" taskCode="RWD20200217002" taskName="安卓软件开发" amount="1000" travelDays="3" submitStatus="{{true}}" submitDateTime="2020-02-17 15:15:15"
+    checkStatus="{{true}}" checkDateTime="2020-02-17 15:15:15" reviewStatus="{{false}}" reviewyDateTime="2020-02-17 15:15:15" payStatus="{{false}}" payDateTime=""></bxdCard>
+</view>
